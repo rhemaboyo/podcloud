@@ -43,6 +43,6 @@ GET /search/?q=etc - searches database for username and track-names matching que
 
 ### Comments
 
-- `POST /api/notebooks`
-- `DELETE /api/notebooks/:id`
-- `PATCH /api/notebooks/:id`
+- `POST /api/comments`
+- `DELETE /api/comments/:id`
+- `PATCH /api/comments/:id`
