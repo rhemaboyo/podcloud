@@ -8,7 +8,7 @@ username        | string    | not null, indexed, unique
 email           | string    | not null, indexed, unique
 password_digest | string    | not null
 session_token   | string    | not null, indexed, unique
-image_url       | string    | not null
+image_url       | string    | 
 about           | text      |
 
 ## tracks
