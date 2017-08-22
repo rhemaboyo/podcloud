@@ -3,7 +3,7 @@ class Api::UsersController < ApplicationController
   before_action :require_logged_out!, only: [:create]
 
   def create
-    @user = @user.new(user_params)
+    @user = User.new(user_params)
     if @user.save
       login(@user)
       render :show
