@@ -20,18 +20,18 @@ class User < ApplicationRecord
 
   attr_reader :password
 
+  def self.find_by_credentials(username, password)
+    user = User.find_by(username: username)
+    return user if user && is_password?(password)
+    nil
+  end
+
   def self.generate_unique_session_token
     session_token = SecureRandom::urlsafe_base64(16)
     while User.find_by(session_token: session_token)
       session_token = SecureRandom::urlsafe_base64(16)
     end
     session_token
-  end
-
-  def find_by_credentials(username, password)
-    user = User.find_by(username: username)
-    return user if user && is_password?(password)
-    nil
   end
 
   def reset_session_token!

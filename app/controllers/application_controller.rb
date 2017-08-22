@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   end
 
   def logout
-    current_user.try(reset_session_token!)
+    current_user.reset_session_token!
     session[:token] = nil
   end
 
@@ -26,6 +26,6 @@ class ApplicationController < ActionController::Base
   end
 
   def require_logged_out!
-    render `api/users/#{current_user.id}` if logged_in?
+    render `api/users/show` if logged_in?
   end
 end
