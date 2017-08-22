@@ -1,4 +1,7 @@
 class Api::SessionsController < ApplicationController
+  before_action :require_logged_in!, only: [:destroy]
+  before_action :require_logged_out!, only: [:create]
+
   def create
     @user = User.find_by_credentials(
             params[:user][:username],
@@ -18,7 +21,6 @@ class Api::SessionsController < ApplicationController
       render 'api/users/show'
     else
       render json: ['User not signed in'], status: 404
-    end 
+    end
   end
-
 end
