@@ -4,7 +4,7 @@
 
 [Trello link][trello]
 
-[heroku]: http://www.herokuapp.com
+[heroku]: https://podcloudapp.herokuapp.com/#/
 [trello]: https://trello.com/b/WqkLPfUL/podcloud
 
 ## Minimum Viable Product
@@ -38,7 +38,7 @@ PodCloud is a podcast streaming platform inspired by SoundCloud, built using Rub
 
 **Objective:** Functioning rails project with front-end Authentication
 
-### Phase 2: User Model, API, and components (1 days)
+### Phase 2: User Model, API, and components (1 day)
 
 **Objective:** Users can upload profile pictures, banner images, about me's, and show tracks on their profile.
 
@@ -53,7 +53,7 @@ the API.
 
 ### Phase 5: Progress Bar (2 days)
 
-**Objective:** Tracks can be played continuously, pause, rewound, skipped, and displayed on any page the user visits.
+**Objective:** Tracks can be played continuously, paused, rewound, skipped, and displayed on any page the user visits.
 
 ### Phase 6: Wave forms and comments displays (2 days)
 

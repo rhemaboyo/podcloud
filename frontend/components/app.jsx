@@ -4,7 +4,7 @@ import {Route} from 'react-router-dom';
 
 const App = () => (
   <div>
-    <Route exact path="/" component={ LandingPage } />
+    <h1>Podcloud</h1>
   </div>
 );
 
