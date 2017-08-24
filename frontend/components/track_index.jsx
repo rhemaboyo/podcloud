@@ -1,21 +1,15 @@
 import React from 'react';
+import NavBar from './nav_bar';
 
 class TrackIndex extends React.Component {
   constructor(props) {
     super(props);
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick(e) {
-    e.preventDefault();
-    this.props.logout();
   }
 
   render() {
     return (
       <div>
-        {this.props.user.username}
-        <button onClick={this.handleClick}>Log Out</button>
+        <NavBar user={this.props.user} logout={this.props.logout}/>
       </div>
     );
   }

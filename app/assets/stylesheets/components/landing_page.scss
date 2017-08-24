@@ -1,0 +1,169 @@
+.landing-page {
+  width:100%;
+  height:100%;
+  background-color: #f2f2f2;
+}
+
+button {
+  cursor:pointer;
+}
+
+.banner {
+  height: 450px;
+  width: 1240px;
+  background-image:url('https://s3.amazonaws.com/podcloud-dev/Screen+Shot+2017-08-23+at+9.00.47+PM.png');
+  margin: 0 auto;
+  border-top: 5px solid #ff5500;
+  background-color: black;
+  button {
+    float: right;
+    margin-left: 10px;
+    margin-top: 20px;
+    font-size: 14px
+  }
+  :nth-child(1) {
+    display: block;
+    margin-right: 30px;
+    font-family: 'Roboto', sans-serif;
+    width: 130px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #ff5500;
+    border: none;
+    color: white;
+    cursor:pointer;
+    font-weight: lighter;
+  }
+  :nth-child(2), :nth-child(3) {
+    display: block;
+    width: 85px;
+    height: 30px;
+    background-color: Transparent;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 5px;
+    font-weight: lighter;
+    cursor:pointer;
+    border-color: white;
+    border-style: solid;
+    color: white;
+  }
+
+  :nth-child(4) {
+    width: 70px
+  }
+
+  :nth-child(5) {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: white
+  }
+
+  p {
+    float: left;
+    font-size: 25px;
+    margin: 25px
+  }
+  img {
+    float: left;
+  }
+}
+
+.banner-text {
+  width: 100%;
+  float: left;
+  position: absolute;
+  top: 250px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+
+  :nth-child(1), :nth-child(2), :nth-child(3) {
+    font-family: 'Roboto', sans-serif;
+    color: white
+  }
+ }
+
+.auth {
+  height: 75vh;
+  width: 450px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  h2 {
+    font-size: 20px;
+  }
+  * {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+  }
+  input, button {
+    width: 90%;
+    height: 40px;
+    margin: 6px;
+    font-size: 30px;
+    border-radius: 5px;
+    border-style: hidden;
+    position: relative;
+  }
+  button {
+    background-color: #ff5500;
+    color: white;
+  }
+  a {
+    font-size: 20px;
+    color: grey;
+  }
+  p {
+    color: red;
+  }
+}
+
+
+.close {
+  float: right;
+  color: black;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  border-style: none;
+  background-color: white;
+}
+
+.trending {
+  width: 1240px;
+  height: 200px;
+  margin: 0 auto;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+  font-size: 35px;
+  p {
+    border: 1px solid black;
+    width: 900px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+  }
+}
+
+.banner-2 {
+  height: 567px;
+  width: 1240px;
+  background-image:url('https://s3.amazonaws.com/podcloud-dev/Screen+Shot+2017-08-23+at+10.07.10+PM.png');
+  margin: 0 auto;
+}
