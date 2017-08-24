@@ -14,10 +14,12 @@ class NavBar extends React.Component {
 
   render() {
     return(
-      <nav className='nav'>
-        <button onClick={this.logout}>Sign Out</button>
-          <p>{this.props.user.username}</p>
-      </nav>
+      <div className='nav-container'>
+        <nav className='nav'>
+          <button onClick={this.logout}>Sign Out</button>
+          <button>{this.props.user.username}</button>
+        </nav>
+      </div>
     );
   }
 }

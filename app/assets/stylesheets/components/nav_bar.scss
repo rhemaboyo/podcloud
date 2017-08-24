@@ -1,5 +1,28 @@
+.nav-container {
+  background-color: #333333;
+}
+
 .nav {
   height: 46px;
-  background-color: #333333;
+  width: 1240px;
   color: white;
+  font-family: 'Roboto', sans-serif;
+  display: inline-block;
+  * {
+    vertical-align: middle;
+    line-height: inherit;
+    height: inherit;
+    background-color: inherit;
+    font-family: inherit;
+    color: #cccccc;
+    font-size: 15px;
+    border-top: none;
+    border-bottom: none;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    margin:0 0 0 -1px;
+  }
+  :first-child, :nth-child(2) {
+    float: right;
+  }
 }
