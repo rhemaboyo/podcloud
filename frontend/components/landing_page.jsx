@@ -25,6 +25,7 @@ class LandingPage extends React.Component {
 
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.handleGuest = this.handleGuest.bind(this);
   }
 
   openModal(e) {
@@ -36,6 +37,12 @@ class LandingPage extends React.Component {
 
   closeModal() {
     this.setState({modalIsOpen: false});
+    this.props.removeErrors();
+  }
+
+  handleGuest(e) {
+    e.preventDefault();
+    this.props.login({username: 'Guest', password:'asdfgh'});
   }
 
   releventForm() {
@@ -56,6 +63,7 @@ class LandingPage extends React.Component {
         <div className="banner">
           <button onClick={this.openModal}>Create Account</button>
           <button onClick={this.openModal}>Sign In</button>
+          <button onClick={this.handleGuest}>Guest</button>
           <img src='https://a-v2.sndcdn.com/assets/images/sc-icons/win8-2dc974a1.png'></img>
           <p>PODCLOUD</p>
         </div>

@@ -26,6 +26,7 @@
   background-image:url('https://s3.amazonaws.com/podcloud-dev/Screen+Shot+2017-08-23+at+9.00.47+PM.png');
   margin: 0 auto;
   border-top: 5px solid #ff5500;
+  background-color: black;
   button {
     float: right;
     margin-left: 10px;
@@ -45,7 +46,7 @@
     cursor:pointer;
     font-weight: lighter;
   }
-  :nth-child(2) {
+  :nth-child(2), :nth-child(3) {
     display: block;
     width: 85px;
     height: 30px;
@@ -55,20 +56,18 @@
     font-weight: lighter;
     cursor:pointer;
     border-color: white;
+    border-style: solid;
     color: white;
   }
 
-  :nth-child(3) {
+  :nth-child(4) {
     width: 70px
   }
 
-  :nth-child(4) {
+  :nth-child(5) {
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
     color: white
-  }
-  :nth-child(5) {
-    background-color: blue;
   }
 
   p {

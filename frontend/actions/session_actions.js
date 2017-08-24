@@ -20,6 +20,10 @@ export const signup = user => dispatch => {
       errors => dispatch(receiveErrors(errors.responseJSON)));
 };
 
+export const removeErrors = () => dispatch => {
+  return dispatch(receiveErrors([]));
+};
+
 export const receiveCurrentUser = (user) => {
   return {
     type: RECEIVE_CURRENT_USER,
