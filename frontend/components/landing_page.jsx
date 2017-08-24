@@ -1,7 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
-import LoginForm from './login_form';
-import SignUpForm from './sign_up_form';
+import AuthForm from './auth_form';
 
 const customStyles = {
   content : {
@@ -46,17 +45,13 @@ class LandingPage extends React.Component {
   }
 
   releventForm() {
-    if (this.state.buttonText === 'Sign In') {
-      return <LoginForm
-              login={this.props.login}
-              errors={this.props.errors}
-              closeModal={this.closeModal} />;
-    } else {
-      return <SignUpForm
-              signup={this.props.signup}
-              errors={this.props.errors}
-              closeModal={this.closeModal}/>;
-    }
+    const type = this.state.buttonText === 'Sign In' ? 'login' : 'signup';
+    return <AuthForm
+            login={this.props.login}
+            signup={this.props.signup}
+            errors={this.props.errors}
+            closeModal={this.closeModal}
+            authType={type} />;
   }
 
   render() {
