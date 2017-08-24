@@ -15,8 +15,8 @@ const customStyles = {
 };
 
 class LandingPage extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       modalIsOpen: false,
@@ -40,25 +40,35 @@ class LandingPage extends React.Component {
 
   releventForm() {
     if (this.state.buttonText === 'Sign In') {
-      return <LoginForm openModal={this.openModal} />;
+      return <LoginForm login={this.props.login} />;
     } else {
-      return <SignUpForm openModal={this.openModal} />;
+      return <SignUpForm signup={this.props.signup} />;
     }
   }
 
   render() {
     return (
-      <div>
-        <button onClick={this.openModal}>Sign In</button>
-        <button onClick={this.openModal}>Create Account</button>
+      <div className="landing-page">
+        <div className="banner">
+          <button onClick={this.openModal}>Create Account</button>
+          <button onClick={this.openModal}>Sign In</button>
+          <img src='https://a-v2.sndcdn.com/assets/images/sc-icons/win8-2dc974a1.png'></img>
+          <p>PODCLOUD</p>
+        </div>
+        <div className="banner-text">
+          <h1>Connect on PodCloud</h1>
+          <p>Discover, stream, and share a constantly expanding mix of podcasts</p>
+          <p>from emerging and major content creators around the world.</p>
+        </div>
         <Modal
           isOpen={this.state.modalIsOpen}
           onRequestClose={this.closeModal}
           style={customStyles}
-          contentLabel="Example Modal"
+          contentLabel="Auth Modal"
           >
           {this.releventForm()}
         </Modal>
+        {this.props.user}
       </div>
     );
   }

@@ -1,10 +1,10 @@
 import React from 'react';
-import LandingPage from './landing_page';
+import LandingPageContainer from './landing_page_container';
 import {Route} from 'react-router-dom';
 
 const App = () => (
   <div>
-    <h1>Podcloud</h1>
+    <Route exact path="/" component={ LandingPageContainer } />
   </div>
 );
 

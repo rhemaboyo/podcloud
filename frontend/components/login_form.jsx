@@ -4,8 +4,13 @@ import SignUpForm from './sign_up_form';
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {status:'login'};
+    this.state = {
+      status:'login',
+      username: '',
+      password: '',
+    };
     this.handleLink = this.handleLink.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleLink(e) {
@@ -13,15 +18,33 @@ class LoginForm extends React.Component {
     this.setState({status: 'signup'});
   }
 
+  handleChange(field) {
+    return (e) => this.setState({ [field]: e.currentTarget.value });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+
+    const user = {
+      username: this.state.username,
+      password: this.state.password
+    };
+
+    this.props.login(user);
+  }
+
   render() {
     if (this.state.status === 'login') {
       return (
-        <div>
-          <form>
+        <div >
+          <form className='login' onSubmit={ this.handleSubmit }>
             <h2>Username</h2>
-            <input />
+            <input onChange={this.handleChange('username')}
+                   value={ this.state.username }/>
             <h2>Password</h2>
-            <input type='password' /><br/>
+            <input type='password'
+                   onChange={this.handleChange('password')}
+                   value={ this.state.password }/><br/>
             <button>Sign In</button><br/>
             <a onClick={this.handleLink}
                href=''

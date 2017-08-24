@@ -13,15 +13,113 @@
  *= require_tree .
  *= require_self
  */
-  html {
-    width:100%;
-    height:100%;
-    background:url('https://a-v2.sndcdn.com/assets/images/home/hp_image-6155d6b.jpg') center top no-repeat;
-    background-color: #f2f2f2;
+
+ .landing-page {
+  position:fixed;
+  width:100%;
+  height:100%;
+  background-color: #f2f2f2;
+}
+
+.banner {
+  height: 450px;
+  width: 1240px;
+  background-image:url('https://a-v2.sndcdn.com/assets/images/home/hp_image-6155d6b.jpg');
+  margin: 0 auto;
+  border-top: 5px solid #ff5500;
+  button {
+    float: right;
+    margin-left: 10px;
+    margin-top: 20px;
+    font-size: 14px
+  }
+  :nth-child(1) {
+    display: block;
+    margin-right: 30px;
+    font-family: 'Roboto', sans-serif;
+    width: 130px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #ff5500;
+    border: none;
+    color: white;
+    cursor:pointer;
+    font-weight: lighter;
+  }
+  :nth-child(2) {
+    display: block;
+    width: 85px;
+    height: 30px;
+    background-color: Transparent;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 5px;
+    font-weight: lighter;
+    cursor:pointer;
+    border-color: white;
+    color: white;
+  }
+
+  :nth-child(3) {
+    width: 70px
+  }
+
+  :nth-child(4) {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: white
+  }
+  :nth-child(5) {
+    background-color: blue;
+  }
+
+  p {
+    float: left;
+    font-size: 25px;
+    margin: 25px
+  }
+  img {
+    float: left;
+  }
+}
+
+.banner-text {
+  width: 100%;
+  float: left;
+  position: absolute;
+  top: 200px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+
+  :nth-child(1), :nth-child(2), :nth-child(3) {
+    font-family: 'Roboto', sans-serif, Thin;
+    color: white
+  }
  }
 
-.landing {
-  button {
-    float: left;
+.login {
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-family: sans-serif;
+  background-color: purple;
+  h2 {
+    font-size: 20px;
+  }
+  * {
+    margin: 10px;
   }
 }
