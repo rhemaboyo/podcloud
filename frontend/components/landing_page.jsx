@@ -49,11 +49,13 @@ class LandingPage extends React.Component {
     if (this.state.buttonText === 'Sign In') {
       return <LoginForm
               login={this.props.login}
-              errors={this.props.errors} />;
+              errors={this.props.errors}
+              closeModal={this.closeModal} />;
     } else {
       return <SignUpForm
               signup={this.props.signup}
-              errors={this.props.errors}/>;
+              errors={this.props.errors}
+              closeModal={this.closeModal}/>;
     }
   }
 

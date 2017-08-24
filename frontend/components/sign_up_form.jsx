@@ -38,23 +38,28 @@ class SignUpForm extends React.Component {
   render() {
     if (this.state.status === 'signup') {
       return (
-        <form className='auth' onSubmit={ this.handleSubmit }>
-          <input onChange={this.handleChange('email')}
-                 placeholder='Email...'
-                 value={ this.state.email }/>
-          <input onChange={this.handleChange('username')}
-                 placeholder='Username...'
-                 value={ this.state.username }/>
-          <input type='password'
-                 onChange={this.handleChange('password')}
-                 placeholder='Password...'
-                 value={ this.state.password }/>
-               <button>Create Account</button>
-          <a onClick={this.handleLink}
-             href=''
-          >Already have an account? Sign In!</a>
-        <p>{this.props.errors}</p>
-        </form>
+        <div>
+          <button className='close'
+                  onClick={this.props.closeModal}
+          >&#10006;</button>
+          <form className='auth' onSubmit={ this.handleSubmit }>
+            <input onChange={this.handleChange('email')}
+                   placeholder='Email...'
+                   value={ this.state.email }/>
+            <input onChange={this.handleChange('username')}
+                   placeholder='Username...'
+                   value={ this.state.username }/>
+            <input type='password'
+                   onChange={this.handleChange('password')}
+                   placeholder='Password...'
+                   value={ this.state.password }/>
+                 <button>Create Account</button>
+            <a onClick={this.handleLink}
+               href=''
+            >Already have an account? Sign In!</a>
+          <p>{this.props.errors}</p>
+          </form>
+        </div>
       );
     } else {
       return <LoginForm />;
