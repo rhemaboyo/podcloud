@@ -47,6 +47,7 @@ class LandingPage extends React.Component {
   }
 
   render() {
+    debugger;
     return (
       <div className="landing-page">
         <div className="banner">
@@ -61,7 +62,7 @@ class LandingPage extends React.Component {
           <p>from emerging and major content creators around the world.</p>
         </div>
         <div className='trending'>
-          <p>Tracks Coming Soon... Keep Your Head In the Clouds.</p>
+          <p>Tracks Coming Soon... Keep Your Head In the Clouds.</p> { /*with these tracks */}
         </div>
         <div className='banner-2'>
         </div>
@@ -73,7 +74,7 @@ class LandingPage extends React.Component {
           >
           {this.releventForm()}
         </Modal>
-        {this.props.user}
+        {this.props.user.username}
       </div>
     );
   }

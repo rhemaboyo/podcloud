@@ -10,9 +10,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 };
 
 const mapStateToProps = (state, ownProps) => {
+  debugger;
   return {
-    user: state.current_user
+    user: state.session.currentUser
   };
 };
 
-export default connect(null, mapDispatchToProps)(LandingPage);
+export default connect(mapStateToProps, mapDispatchToProps)(LandingPage);
