@@ -1,14 +1,19 @@
 .nav-container {
   background-color: #333333;
+  width: 100%;
+  height: 46px;
+  display: flex;
+  justify-content: center;
 }
 
 .nav {
   height: 46px;
   width: 1240px;
   color: white;
+  margin: 0 auto;
   font-family: 'Roboto', sans-serif;
   display: inline-block;
-  * {
+  :not(input) {
     vertical-align: middle;
     line-height: inherit;
     height: inherit;
@@ -21,8 +26,30 @@
     border-left: 1px solid black;
     border-right: 1px solid black;
     margin:0 0 0 -1px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
-  :first-child, :nth-child(2) {
+  :first-child, :nth-child(2), :nth-child(3) {
     float: right;
+  }
+  input {
+    border-radius: 5px;
+    width: 50%;
+    margin-left: 70px;
+    margin-right: 70px;
+    margin-top: 8px
+  }
+
+  :nth-child(4), :nth-child(5) {
+    float: left;
+  }
+  :nth-child(6) {
+    height: 50%;
+    border-style: outset;
+    font-size: 15px;
+  }
+
+  img {
+    background-color: #ff3d00;
   }
 }
