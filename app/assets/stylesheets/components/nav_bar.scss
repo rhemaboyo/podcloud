@@ -29,6 +29,11 @@
     padding-left: 20px;
     padding-right: 20px;
   }
+  a {
+    text-decoration: none;
+    border: none;
+    margin-top: 15px;
+  }
   :first-child, :nth-child(2), :nth-child(3) {
     float: right;
   }

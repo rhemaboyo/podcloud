@@ -8,6 +8,8 @@ const App = () => (
   <div>
     <AuthRoute exact path="/" component={ LandingPageContainer } />
     <ProtectedRoute path="/stream" component={ TrackIndexContainer } />
+    {/*Protect user route for now...should be made public later*/}
+    <ProtectedRoute path="/:username" component={UserPageContainer}/>
   </div>
 );
 
