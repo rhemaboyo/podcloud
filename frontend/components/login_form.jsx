@@ -36,21 +36,19 @@ class LoginForm extends React.Component {
   render() {
     if (this.state.status === 'login') {
       return (
-        <div >
-          <form className='login' onSubmit={ this.handleSubmit }>
-            <h2>Username</h2>
-            <input onChange={this.handleChange('username')}
-                   value={ this.state.username }/>
-            <h2>Password</h2>
-            <input type='password'
-                   onChange={this.handleChange('password')}
-                   value={ this.state.password }/><br/>
-            <button>Sign In</button><br/>
-            <a onClick={this.handleLink}
-               href=''
-            >Don't have an account? Sign up!</a>
-          </form>
-        </div>
+        <form className='auth' onSubmit={ this.handleSubmit }>
+          <input onChange={this.handleChange('username')}
+                 placeholder='Username...'
+                 value={ this.state.username }/>
+          <input type='password'
+                 onChange={this.handleChange('password')}
+                 placeholder='Password...'
+                 value={ this.state.password }/>
+          <button>Sign In</button>
+          <a onClick={this.handleLink}
+             href=''
+          >Don't have an account? Sign up!</a>
+        </form>
       );
     } else {
       return <SignUpForm />;

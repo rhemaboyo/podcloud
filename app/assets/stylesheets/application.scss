@@ -15,7 +15,6 @@
  */
 
  .landing-page {
-  position:fixed;
   width:100%;
   height:100%;
   background-color: #f2f2f2;
@@ -24,7 +23,7 @@
 .banner {
   height: 450px;
   width: 1240px;
-  background-image:url('https://a-v2.sndcdn.com/assets/images/home/hp_image-6155d6b.jpg');
+  background-image:url('https://s3.amazonaws.com/podcloud-dev/Screen+Shot+2017-08-23+at+9.00.47+PM.png');
   margin: 0 auto;
   border-top: 5px solid #ff5500;
   button {
@@ -86,7 +85,7 @@
   width: 100%;
   float: left;
   position: absolute;
-  top: 200px;
+  top: 250px;
   margin: 0 auto;
   text-align: center;
   display: flex;
@@ -103,23 +102,60 @@
   }
 
   :nth-child(1), :nth-child(2), :nth-child(3) {
-    font-family: 'Roboto', sans-serif, Thin;
+    font-family: 'Roboto', sans-serif;
     color: white
   }
  }
 
-.login {
-  height: 50vh;
+.auth {
+  height: 75vh;
+  width: 450px;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  font-family: sans-serif;
-  background-color: purple;
   h2 {
     font-size: 20px;
   }
   * {
-    margin: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
   }
+  input, button {
+    width: 90%;
+    height: 40px;
+    margin: 6px;
+    font-size: 30px;
+    border-radius: 5px;
+    border-style: hidden;
+  }
+  button {
+    background-color: #ff5500;
+    color: white;
+  }
+  a {
+    font-size: 20px;
+    color: grey;
+  }
+}
+
+.trending {
+  width: 1240px;
+  height: 200px;
+  margin: 0 auto;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+  font-size: 35px
+}
+
+.banner-2 {
+  height: 567px;
+  width: 1240px;
+  background-image:url('https://s3.amazonaws.com/podcloud-dev/Screen+Shot+2017-08-23+at+10.07.10+PM.png');
+  margin: 0 auto;
 }

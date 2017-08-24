@@ -60,6 +60,11 @@ class LandingPage extends React.Component {
           <p>Discover, stream, and share a constantly expanding mix of podcasts</p>
           <p>from emerging and major content creators around the world.</p>
         </div>
+        <div className='trending'>
+          <p>Tracks Coming Soon... Keep Your Head In the Clouds.</p>
+        </div>
+        <div className='banner-2'>
+        </div>
         <Modal
           isOpen={this.state.modalIsOpen}
           onRequestClose={this.closeModal}
