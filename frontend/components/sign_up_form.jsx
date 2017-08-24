@@ -53,6 +53,7 @@ class SignUpForm extends React.Component {
           <a onClick={this.handleLink}
              href=''
           >Already have an account? Sign In!</a>
+        <p>{this.props.errors}</p>
         </form>
       );
     } else {

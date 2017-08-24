@@ -2,17 +2,16 @@ import { connect } from 'react-redux';
 import LandingPage from './landing_page';
 import {login, signup} from '../actions/session_actions';
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = (dispatch) => {
   return {
     login: user => dispatch(login(user)),
     signup: user => dispatch(signup(user))
   };
 };
 
-const mapStateToProps = (state, ownProps) => {
-  debugger;
+const mapStateToProps = (state) => {
   return {
-    user: state.session.currentUser
+    errors: state.session.errors,
   };
 };
 

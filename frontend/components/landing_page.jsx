@@ -40,14 +40,17 @@ class LandingPage extends React.Component {
 
   releventForm() {
     if (this.state.buttonText === 'Sign In') {
-      return <LoginForm login={this.props.login} />;
+      return <LoginForm
+              login={this.props.login}
+              errors={this.props.errors} />;
     } else {
-      return <SignUpForm signup={this.props.signup} />;
+      return <SignUpForm
+              signup={this.props.signup}
+              errors={this.props.errors}/>;
     }
   }
 
   render() {
-    debugger;
     return (
       <div className="landing-page">
         <div className="banner">
@@ -74,7 +77,6 @@ class LandingPage extends React.Component {
           >
           {this.releventForm()}
         </Modal>
-        {this.props.user.username}
       </div>
     );
   }

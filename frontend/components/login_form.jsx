@@ -48,6 +48,7 @@ class LoginForm extends React.Component {
           <a onClick={this.handleLink}
              href=''
           >Don't have an account? Sign up!</a>
+        <p>{this.props.errors}</p>
         </form>
       );
     } else {
