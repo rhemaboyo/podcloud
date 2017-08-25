@@ -8,12 +8,15 @@ class UserPage extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='user-container'>
         <NavBar user={this.props.user} logout={this.props.logout}/>
         <div className='user-image-container'>
           <img src={this.props.user.avatar} className='avatar'/>
           <img src={this.props.user.banner_image} className='user-banner'/>
           <p>{this.props.user.username}</p>
+        </div>
+        <div className='user-body'>
+          <div className='track-container'></div>
         </div>
       </div>
     );

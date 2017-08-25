@@ -16,6 +16,30 @@
     left: 350px;
     top: 45%
   }
+
+}
+
+.user-container {
+  height: 100%;
+}
+
+
+.user-body {
+  display: flex;
+  justify-content: center;
+  background-color: #f2f2f2;
+  height: 100%;
+  position: absolute;
+  .track-container {
+    margin: 0 auto;
+    width: 1240px;
+    height: 100%;
+    text-align: center;
+    position: relative;
+    left: 100px;
+    display: inline-block;
+    background-color: white;
+  }
 }
 
 .avatar {
