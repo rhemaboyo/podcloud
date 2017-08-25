@@ -44,7 +44,7 @@ class LandingPage extends React.Component {
     this.props.login({username: 'Guest', password:'asdfgh'});
   }
 
-  releventForm() {
+  renderAuth() {
     const type = this.state.buttonText === 'Sign In' ? 'login' : 'signup';
     return <AuthForm
             login={this.props.login}
@@ -80,7 +80,7 @@ class LandingPage extends React.Component {
           style={customStyles}
           contentLabel="Auth Modal"
           >
-          {this.releventForm()}
+          {this.renderAuth()}
         </Modal>
       </div>
     );

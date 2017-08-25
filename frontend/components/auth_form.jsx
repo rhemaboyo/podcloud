@@ -4,7 +4,8 @@ class AuthForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      authType:this.props.authType,
+      authType: this.props.authType,
+      errors: this.props.errors,
       email: '',
       username: '',
       password: '',
@@ -12,11 +13,20 @@ class AuthForm extends React.Component {
     this.handleLink = this.handleLink.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+  componentWillReceiveProps(nextProps) {
+    this.setState({errors: nextProps.errors});
+  }
 
   handleLink(e) {
     e.preventDefault();
     const type = this.state.authType === 'login' ? 'signup' : 'login';
-    this.setState({authType: type});
+    this.setState({
+      authType: type,
+      errors: [],
+      email: '',
+      username: '',
+      password: '',
+    });
   }
 
   handleChange(field) {
@@ -42,15 +52,18 @@ class AuthForm extends React.Component {
     let email, buttonText, linkText;
     if (this.state.authType === 'signup') {
       email = <input onChange={this.handleChange('email')}
-             placeholder='Email...'
-             value={ this.state.email }/>;
-      buttonText = 'Creat Account';
+                     placeholder='Email...'
+                     value={ this.state.email }/>;
+      buttonText = 'Create Account';
       linkText = 'Already have and account? Sign In!';
     } else {
       email = null;
       buttonText = 'Sign In';
       linkText = "Don't have an account? Sign up!";
     }
+    const errors = this.state.errors.map((error, i) => {
+      return <li key={i}>{error}</li>;
+    });
     return (
       <div>
         <button className='close'
@@ -69,7 +82,7 @@ class AuthForm extends React.Component {
           <a onClick={this.handleLink}
              href=''
           >{linkText}</a>
-        <p>{this.props.errors}</p>
+        <ul>{errors}</ul>
         </form>
       </div>
     );

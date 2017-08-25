@@ -28,7 +28,7 @@ class NavBar extends React.Component {
       <div className='nav-container'>
         <nav className='nav'>
           <button onClick={this.logout}>Sign Out</button>
-          <Link to={`/this.props.user.username`}>
+          <Link to={`/${this.props.user.username}`}>
             {this.props.user.username}
           </Link>
           <button onClick={this.preventDefault}>Upload</button>
