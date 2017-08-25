@@ -10,8 +10,11 @@ class UserPage extends React.Component {
     return (
       <div>
         <NavBar user={this.props.user} logout={this.props.logout}/>
-        <img src={this.props.user.avatar}/>
-        <img src={this.props.user.banner_image}/>
+        <div className='user-image-container'>
+          <img src={this.props.user.avatar} className='avatar'/>
+          <img src={this.props.user.banner_image} className='user-banner'/>
+          <p>{this.props.user.username}</p>
+        </div>
       </div>
     );
   }

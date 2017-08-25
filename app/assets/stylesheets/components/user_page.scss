@@ -1,0 +1,34 @@
+.user-image-container {
+  width: 100%;
+  height: 260px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  background-color: #f2f2f2;
+
+  p {
+    position: absolute;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    background-color: rgba(0,0,0,.8);
+    padding: 4px 7px;
+    font-size: 24px;
+    left: 350px;
+    top: 45%
+  }
+}
+
+.avatar {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  right: 77%;
+  top: 12%;
+}
+
+.user-banner {
+  width: 1240px;
+  height: 260px;
+  margin: 0 auto;
+}
