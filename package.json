@@ -33,6 +33,7 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "react": "^15.6.1",
+    "react-avatar-cropper": "^0.1.3",
     "react-dom": "^15.6.1",
     "react-modal": "^2.2.4",
     "react-redux": "^5.0.6",
