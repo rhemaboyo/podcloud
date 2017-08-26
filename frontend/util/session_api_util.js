@@ -8,6 +8,16 @@ export const signup = (user) => {
   });
 };
 
+export const editUser = (id, data) => {
+  return $.ajax({
+    method: 'PATCH',
+    url: `/api/users/${id}`,
+    processData: false,
+    contentType: false,
+    data: data
+  });
+};
+
 export const login = (user) => {
   return $.ajax({
     method: 'POST',

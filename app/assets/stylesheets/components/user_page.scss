@@ -25,8 +25,24 @@
   .banner-image-wrapper:hover label {
     visibility:visible;
   }
+  .avatar:hover label {
+    visibility:visible;
+  }
 
-  label {
+  // .avatar-upload-label {
+  //   padding: 5px;
+  //   position: absolute;
+  //   background-color: #ccc;
+  //   border-radius: 5px;
+  //   font-family: 'Roboto', sans-serif;
+  //   font-weight: 400;
+  //   font-size: 15px;
+  //   left: 10%;
+  //   top: 10%;
+  //   visibility: hidden;
+  // }
+
+   label {
     padding: 5px;
     position: absolute;
     background-color: #ccc;
@@ -34,12 +50,21 @@
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 15px;
-    right: 10%;
-    top: 10%;
     visibility: hidden;
   }
 
-  label:hover {
+  .banner-upload-label {
+    right: 10%;
+    top: 10%;
+  }
+
+  .avatar-upload-label {
+    left: 22%;
+    bottom: 5%;
+  }
+
+
+  label:hover, span:hover {
     cursor: pointer;
   }
 

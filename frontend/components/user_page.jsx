@@ -1,11 +1,25 @@
 import React from 'react';
 import NavBar from './nav_bar';
-import AvatarCropper from 'react-avatar-cropper';
+import AvatarImageCropper from 'react-avatar-image-cropper';
 
 class UserPage extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      imageFile: null,
+      imageUrl: null,
+    };
+    this.handleUpload = this.handleUpload.bind(this);
   }
+
+  handleUpload(e, key) {
+    const file = e.currentTarget.files[0];
+    const formData = new FormData();
+    if (file) formData.append(`user[${key}]`, file);
+    this.props.editUser(this.props.user.id, formData);
+  }
+
+
 
   render() {
     return (
@@ -13,13 +27,22 @@ class UserPage extends React.Component {
         <NavBar user={this.props.user} logout={this.props.logout}/>
         <div className='user-image-container'>
           <img src={this.props.user.avatar} className='avatar'/>
+          <div className='avatar'>
+            <label htmlFor="avatar-upload" className='avatar-upload-label'>
+              <i className="fa fa-camera" aria-hidden="true"></i>
+              Update Avatar
+              <input type="file" id="avatar-upload"
+                  onChange={e => this.handleUpload(e, 'avatar')}/>
+              </label>
+          </div>
           <p>{this.props.user.username}</p>
           <div className="banner-image-wrapper">
             <img src={this.props.user.banner_image} className='user-banner'/>
-            <label htmlFor="banner-upload">
+            <label htmlFor="banner-upload" className='banner-upload-label'>
               <i className="fa fa-camera" aria-hidden="true"></i>
               Update Banner
-              <input type="file" id="files" className="hidden"/>
+              <input type="file" id="banner-upload"
+                  onChange={e => this.handleUpload(e, 'banner_image')}/>
             </label>
           </div>
         </div>

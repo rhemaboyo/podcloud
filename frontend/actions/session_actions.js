@@ -20,6 +20,12 @@ export const signup = user => dispatch => {
       errors => dispatch(receiveErrors(errors.responseJSON)));
 };
 
+export const editUser = (id, data) => dispatch => {
+  return APIUtil.editUser(id, data)
+    .then(returnedUser => dispatch(receiveCurrentUser(returnedUser)),
+      errors => dispatch(receiveErrors(errors.responseJSON)));
+};
+
 export const removeErrors = () => dispatch => {
   return dispatch(receiveErrors([]));
 };
