@@ -1,6 +1,6 @@
 export const addPodcast = () => {
   $.ajax({
-    method: 'GET',
-    url: '',
+    method: 'POST',
+    url: 'api/podcast',
   });
 };
