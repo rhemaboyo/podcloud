@@ -30,9 +30,10 @@
     padding-right: 20px;
   }
   a {
+    height: 30px;
+    display: inline-block;
     text-decoration: none;
-    border: none;
-    margin-top: 15px;
+    padding-top: 15px;
   }
   :first-child, :nth-child(2), :nth-child(3) {
     float: right;

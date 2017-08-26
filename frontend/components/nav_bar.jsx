@@ -31,7 +31,7 @@ class NavBar extends React.Component {
           <Link to={`/${this.props.user.username}`}>
             {this.props.user.username}
           </Link>
-          <button onClick={this.preventDefault}>Upload</button>
+          <Link to={`/upload`}>Upload</Link>
           <img src='https://a-v2.sndcdn.com/assets/images/sc-icons/win8-2dc974a1.png'></img>
           <button onClick={this.preventDefault}>Home</button>
           <input onSubmit={this.preventDefault}
