@@ -34,6 +34,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem "paperclip", '~> 5.0.0'
 gem 'figaro'
 gem 'aws-sdk', '>= 2.0'
+gem 'rest-client'
+gem 'feedjira'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

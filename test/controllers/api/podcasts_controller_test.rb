@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class EpisodesControllerTest < ActionDispatch::IntegrationTest
+class Api::PodcastsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
