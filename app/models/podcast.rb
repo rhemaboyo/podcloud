@@ -12,5 +12,5 @@
 #
 
 class Podcast < ApplicationRecord
-  
+  validates :title, :logo_url, :feed_url, :itunes_id, presence: true  
 end
