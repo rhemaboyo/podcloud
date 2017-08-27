@@ -45,7 +45,7 @@ class UserPage extends React.Component {
             </label>
           </div>
         </div>
-        <div className='user-body'>
+        <div className='body'>
           <div className='track-container'></div>
         </div>
       </div>
