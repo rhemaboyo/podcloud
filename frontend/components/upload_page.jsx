@@ -1,5 +1,6 @@
 import React from 'react';
-import NavBar from './nav_bar';
+import NavBarContainer from './nav_bar_container';
+import {Redirect} from 'react-router-dom';
 
 class UploadPage extends React.Component {
   constructor(props) {
@@ -30,13 +31,14 @@ class UploadPage extends React.Component {
     }).then(null, (response) => {
       podcast = JSON.parse(response.responseText).results[0];
       this.props.addPodcast(podcast);
+      this.props.history.push(`/podcasts/${podcast.collectionId}`);
     });
   }
 
   render() {
     return (
       <div>
-        <NavBar user={this.props.user} logout={this.props.logout}/>
+        <NavBarContainer/>
         <form onSubmit={this.handleSubmit}>
           <label>
             Please enter the exact title of your podcast

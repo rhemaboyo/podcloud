@@ -12,3 +12,10 @@ export const addPodcast = (podcast) => {
     }
   });
 };
+
+export const requestSinglePodcast = (itunesId) => {
+  return $.ajax({
+    method: 'GET',
+    url: `api/podcasts/${itunesId}`,
+  });
+};

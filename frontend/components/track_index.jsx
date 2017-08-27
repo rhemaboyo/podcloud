@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBar from './nav_bar';
+import NavBarContainer from './nav_bar_container';
 
 class TrackIndex extends React.Component {
   constructor(props) {
@@ -9,7 +9,7 @@ class TrackIndex extends React.Component {
   render() {
     return (
       <div>
-        <NavBar user={this.props.user} logout={this.props.logout}/>
+        <NavBarContainer/>
       </div>
     );
   }

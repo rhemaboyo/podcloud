@@ -5,6 +5,7 @@ import {AuthRoute, ProtectedRoute} from '../util/route_util';
 import {Route, Switch} from 'react-router-dom';
 import UserPageContainer from './user_page_container';
 import UploadPageContainer from './upload_page_container';
+import PodcastPageContainer from './podcast_page_container';
 
 const App = () => (
   <div>
@@ -13,6 +14,7 @@ const App = () => (
       <ProtectedRoute exact path="/stream" component={ TrackIndexContainer } />
       {/*Protect user route for now...should be made public later*/}
       <ProtectedRoute path="/upload" component={UploadPageContainer}/>
+      <ProtectedRoute path="/podcasts/:itunesId" component={PodcastPageContainer}/>
       <ProtectedRoute path="/:username" component={UserPageContainer}/>
     </Switch>
   </div>

@@ -50,7 +50,7 @@
 state: {
   entities: {
     podcasts: {
-      id: {
+      title: {
         id,
         title,
         logo_url,
