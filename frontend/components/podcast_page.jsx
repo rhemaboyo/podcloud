@@ -14,7 +14,7 @@ class PodcastPage extends React.Component {
   }
 
   handleClick() {
-    this.music.play();
+    this.audio.play();
   }
 
 
@@ -22,7 +22,8 @@ class PodcastPage extends React.Component {
     if (!this.props.podcast) return null;
     return (
       <div className='podcast-container'>
-        <audio ref={(audio) => this.audio = audio}
+        <NavBarContainer/>
+        <audio ref={(audio) => (this.audio = audio)}
                src={`${this.props.podcast.episodes[0].audio_url}`}
                type={`${this.props.podcast.episodes[0].audio_type}`}></audio>
         <button onClick={this.handleClick}>play</button>
