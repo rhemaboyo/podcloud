@@ -13,3 +13,10 @@ export const receivePodcast = (podcast) => {
     podcast
   };
 };
+
+// export const receivePodcastErrors = (errors) => {
+//   return {
+//     type: RECEIVE_ERRORS,
+//     errors
+//   };
+// };
