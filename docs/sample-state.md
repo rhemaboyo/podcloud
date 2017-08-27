@@ -47,4 +47,50 @@
   }
 }
 
+state: {
+  entities: {
+    podcasts: {
+      id: {
+        id,
+        title,
+        logo_url,
+        feed_url,
+        itunes_id,
+        episodes: [
+          {ep1},
+          {ep2},
+          ...
+        ],
+      },
+    },
+    users:
+    episodes: {
+      id: {
+        id,
+        title,
+        summary,
+        pub_date,
+        podcast_id,
+        audio_url,
+        duration,
+        file_type?,
+        file_size?,
+        comments: [
+          {comment1},
+          {comment2},
+          ...
+        ],
+      },
+    },
+    comments:
+  },
+  session: {
+    current_user: {
+      id: ...,
+      username: ...
+    },
+    errors: [...]
+  },
+}
+
 ```

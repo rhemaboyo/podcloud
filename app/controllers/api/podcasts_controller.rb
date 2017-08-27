@@ -1,7 +1,6 @@
 class Api::PodcastsController < ApplicationController
   def create
     @podcast = Podcast.new(podcast_params)
-    debugger
     if @podcast.save
       @episodes = get_five_episodes(@podcast.feed_url)
       render :show
