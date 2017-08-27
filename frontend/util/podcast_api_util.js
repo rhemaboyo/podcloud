@@ -1,11 +1,11 @@
 export const addPodcast = (podcast) => {
-  $.ajax({
+  return $.ajax({
     method: 'POST',
-    url: 'api/podcast',
+    url: 'api/podcasts',
     data: {
       podcast: {
         title: podcast.collectionName,
-        logo_url: podcast.artworkUrl360,
+        logo_url: podcast.artworkUrl600,
         feed_url: podcast.feedUrl,
         itunes_id: podcast.collectionId,
       }

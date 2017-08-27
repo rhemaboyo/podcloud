@@ -8,6 +8,7 @@ export const addPodcast = podcast => dispatch => {
 
 
 export const receivePodcast = (podcast) => {
+  debugger;
   return {
     type: RECEIVE_PODCAST,
     podcast

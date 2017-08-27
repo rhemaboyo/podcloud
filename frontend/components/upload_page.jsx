@@ -16,6 +16,7 @@ class UploadPage extends React.Component {
   }
 
   handleSubmit(e) {
+    debugger;
     e.preventDefault();
     let podcast;
     $.ajax({
@@ -29,6 +30,7 @@ class UploadPage extends React.Component {
       }),
     }).then(null, (response) => {
       podcast = JSON.parse(response.responseText).results[0];
+      debugger;
       this.props.addPodcast(podcast);
     });
   }
