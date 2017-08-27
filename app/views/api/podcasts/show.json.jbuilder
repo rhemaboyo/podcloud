@@ -1,6 +1,6 @@
 json.podcast do
   json.partial! 'api/podcasts/podcast', podcast: @podcast
-  json.episode do
-    json.array! @episodes, partial: 'api/epidsodes/episode', as: :episode
+  json.episodes do
+    json.array! @episodes, partial: 'api/episodes/episode', as: :episode
   end
 end
