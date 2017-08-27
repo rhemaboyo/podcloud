@@ -7,7 +7,7 @@ const PodcastsReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_SINGLE_PODCAST:
       const podcast = action.payload.podcast;
-      return merge({}, state, {[podcast.title]: podcast});
+      return merge({}, state, {[podcast.itunes_id]: podcast});
     default:
       return state;
   }

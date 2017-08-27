@@ -4,6 +4,7 @@ import NavBarContainer from './nav_bar_container';
 class PodcastPage extends React.Component {
   constructor(props) {
     super(props);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -12,11 +13,17 @@ class PodcastPage extends React.Component {
     }
   }
 
+  handleClick() {
+    this.music.play();
+  }
+
+
   render() {
     if (!this.props.podcast) return null;
     return (
       <div className='podcast-container'>
-        <audio src={`${this.state.audioUrl}`}></audio>
+        <button onClick={this.handleClick}>play</button>
+        <audio ref={(audio) => this.audio = audio} src={`${this.props.podcast.episodes[0].audio_url}`}></audio>
       </div>
     );
   }

@@ -10,8 +10,13 @@ class Api::PodcastsController < ApplicationController
   end
 
   def show
-    @podcast = Podcast.find(params[:id])
-    render :show
+    @podcast = Podcast.find_by(itunes_id: params[:id])
+    if @podcast
+      @episodes = @podcast.episodes
+      render :show
+    else
+      render json: ['No such podcast available'], status: 404
+    end 
   end
 
   private

@@ -6,9 +6,13 @@ export const addPodcast = podcast => dispatch => {
     .then(returnedPodcast => dispatch(receiveSinglePodcast(returnedPodcast)));
 };
 
+export const requestSinglePodcast = itunesId => dispatch => {
+  return APIUtil.requestSinglePodcast(itunesId)
+    .then(returnedPodcast => dispatch(receiveSinglePodcast(returnedPodcast)));
+};
+
 
 export const receiveSinglePodcast = (payload) => {
-  debugger;
   return {
     type: RECEIVE_SINGLE_PODCAST,
     payload
