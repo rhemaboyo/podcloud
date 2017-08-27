@@ -14,6 +14,6 @@
 
 class Episode < ApplicationRecord
   validates :title, :summary, :pub_date, :podcast_id,
-            :audio_url, :duration, presence: true
+            :audio_url, :duration, :audio_type, presence: true
   belongs_to :podcast
 end

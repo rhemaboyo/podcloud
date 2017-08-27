@@ -41,7 +41,8 @@ class ApplicationController < ActionController::Base
         summary: episode.summary,
         pub_date: episode.published,
         audio_url: episode.enclosure_url,
-        duration: episode.itunes_duration
+        duration: episode.itunes_duration,
+        audio_type: ep.enclosure_type
       )
       if ep.save
         five_most_recent_episodes << ep
