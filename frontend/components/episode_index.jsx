@@ -14,7 +14,8 @@ class EpisodeIndex extends React.Component {
   render() {
     if (this.props.episodes.length === 0) return null;
     const episodes = this.props.episodes.map( episode => {
-      return <EpisodeIndexItem episode={episode}
+      return <EpisodeIndexItem
+        episode={episode}
         key={episode.id}
         currentEp={this.props.currentEp}
         receiveCurrentEp={this.props.receiveCurrentEp}/>;

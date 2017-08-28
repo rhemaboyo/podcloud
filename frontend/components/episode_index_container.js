@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
 import EpisodeIndex from './episode_index';
-import {receiveCurrentEp} from '../actions/episode_actions';
+import {receiveCurrentEp, requestAllEpisodes} from '../actions/episode_actions';
 import {selectEpisodes} from '../reducers/selectors';
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    receiveCurrentEp: () => dispatch(receiveCurrentEp()),
+    requestAllEpisodes: () => dispatch(requestAllEpisodes()),
+    receiveCurrentEp: episode => dispatch(receiveCurrentEp(episode)),
   };
 };
 

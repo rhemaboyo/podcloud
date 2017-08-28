@@ -13,7 +13,7 @@ const EpisodesReducer = (state = _defaultState, action) => {
   let newState;
   switch (action.type) {
     case RECEIVE_ALL_EPISODES:
-      return action.payload.episodes;
+      return merge({}, action.payload.episodes, {currentEp: null});
     case RECEIVE_CURRENT_EPISODE:
       newState = merge({}, state);
       newState.currentEp = action.currentEp;

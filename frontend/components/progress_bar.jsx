@@ -5,6 +5,8 @@ const customStyles = {
   width: '100%',
   bottom: '0',
   backgroundColor: '#f2f2f2',
+  zIndex: '9999',
+  position: 'fixed',
 };
 
 class ProgressBar extends React.Component {
@@ -12,12 +14,15 @@ class ProgressBar extends React.Component {
     super(props);
   }
 
+  
+
   render() {
     if (!this.props.currentEp) return null;
     return (
         <Audio
           style={customStyles}
           autoPlay={true}
+          playlist={this.props.playlist}
           ref={audioComponent => {this.audioComponent = audioComponent;}}
         />
     );
