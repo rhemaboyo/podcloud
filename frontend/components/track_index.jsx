@@ -8,7 +8,7 @@ class TrackIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getAllEpisodes();
+    this.props.requestAllEpisodes();
   }
 
   render() {

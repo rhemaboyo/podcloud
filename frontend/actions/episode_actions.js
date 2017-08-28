@@ -3,7 +3,9 @@ export const RECEIVE_ALL_EPISODES = 'RECEIVE_ALL_EPISODES';
 
 export const requestAllEpisodes = () => dispatch => {
   return APIUtil.requestAllEpisodes()
-    .then(episodes => dispatch(receiveAllEpisodes(episodes)));
+    .then(episodes => {
+      dispatch(receiveAllEpisodes(episodes));
+    });
 };
 
 
