@@ -6,6 +6,7 @@ import {Route, Switch} from 'react-router-dom';
 import UserPageContainer from './user_page_container';
 import UploadPageContainer from './upload_page_container';
 import PodcastPageContainer from './podcast_page_container';
+import ProgressBarContainer from './progress_bar_container';
 
 const App = () => (
   <div>
@@ -17,6 +18,9 @@ const App = () => (
       <ProtectedRoute path="/podcasts/:itunesId" component={PodcastPageContainer}/>
       <ProtectedRoute path="/:username" component={UserPageContainer}/>
     </Switch>
+    <footer>
+      <ProgressBarContainer/>
+    </footer>
   </div>
 );
 

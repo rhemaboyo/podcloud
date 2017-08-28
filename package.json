@@ -36,6 +36,7 @@
     "babel-register": "^6.26.0",
     "cropper": "^3.0.0-rc.3",
     "react": "^15.6.1",
+    "react-audioplayer": "^0.3.1",
     "react-avatar-cropper": "^0.1.3",
     "react-avatar-editor": "^10.2.1",
     "react-avatar-image-cropper": "^1.1.4",
