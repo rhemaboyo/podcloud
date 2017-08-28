@@ -1,5 +1,62 @@
-.episode {
+// .episode {
+//   width: 300px;
+//   height: 300px;
+//   float: left;
+//   z-index: 9000;
+  // display: flex;
+  // justify-content: center;
+  // .episode {
+  //   position: relative;
+  //   z-index: 9001;
+  //   width:300px;
+  //   height: 300px;
+  // }
+//   #play {
+//     position: relative;
+//     font-size: 200px;
+//     left: 10%;
+//     z-index: 9002;
+//   }
+// }
+
+.episode-container {
+  position: relative;
   width: 300px;
   height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9000;
   float: left;
+  #playPause {
+    position: absolute;
+    font-size: 100px;
+    top: 100px;
+    left: 100px;
+    z-index: 9002;
+    visibility: hidden;
+    color: #ff3d00;
+    text-shadow: 3px 3px 0px white;
+  }
+  .episode {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    top: 0px;
+    left: 0px;
+    z-index: 9001;
+  }
+}
+
+.episode-container:hover #playPause {
+  visibility: visible;
+}
+.episode-container:hover{
+    .overlay {
+      opacity: 3;
+    }
+    .episode {
+      -webkit-filter: blur(4px);
+      filter: blur(4px);
+    }
 }
