@@ -2,7 +2,7 @@ import React from 'react';
 import NavBarContainer from './nav_bar_container';
 import EpisodeIndexItem from './episode_index_item';
 
-class TrackIndex extends React.Component {
+class EpisodeIndex extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -12,9 +12,12 @@ class TrackIndex extends React.Component {
   }
 
   render() {
-    if (!this.props.episodes) return null;
+    if (this.props.episodes.length === 0) return null;
     const episodes = this.props.episodes.map( episode => {
-      return <EpisodeIndexItem episode={episode} key={episode.id}/>;
+      return <EpisodeIndexItem episode={episode}
+        key={episode.id}
+        currentEp={this.props.currentEp}
+        receiveCurrentEp={this.props.receiveCurrentEp}/>;
     });
     return (
       <div>
@@ -29,4 +32,4 @@ class TrackIndex extends React.Component {
   }
 }
 
-export default TrackIndex;
+export default EpisodeIndex;

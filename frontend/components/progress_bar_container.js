@@ -8,7 +8,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
   return {
-    playing: state.entities.episodes.playing,
+    currentEp: state.entities.episodes.currentEp,
   };
 };
 
