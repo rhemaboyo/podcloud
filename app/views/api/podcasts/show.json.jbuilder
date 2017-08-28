@@ -1,3 +1,4 @@
+json.key_format! camelize: :lower
 json.podcast do
   json.partial! 'api/podcasts/podcast', podcast: @podcast
   json.episodes do

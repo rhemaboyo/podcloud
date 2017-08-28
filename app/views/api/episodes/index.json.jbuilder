@@ -1,3 +1,4 @@
+json.key_format! camelize: :lower
 json.episodes do
   @episodes.each do |episode|
     json.set! episode.id do
