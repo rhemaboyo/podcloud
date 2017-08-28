@@ -1,16 +1,17 @@
 import { connect } from 'react-redux';
 import TrackIndex from './track_index';
-import {logout} from '../actions/session_actions';
+import {requestAllEpisodes} from '../actions/episode_actions';
+import {selectEpisodes} from '../reducers/selectors';
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    logout: user => dispatch(logout()),
+    requestAllEpisodes: () => dispatch(requestAllEpisodes()),
   };
 };
 
 const mapStateToProps = (state) => {
   return {
-    user: state.session.currentUser
+    episodes: selectEpisodes(state),
   };
 };
 

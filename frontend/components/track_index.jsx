@@ -13,13 +13,15 @@ class TrackIndex extends React.Component {
 
   render() {
     if (!this.props.episodes) return null;
-    const episodes = this.props.episodes.map( episode => <EpisodeIndexItem/>);
+    const episodes = this.props.episodes.map( episode => {
+      return <EpisodeIndexItem episode={episode} key={episode.id}/>;
+    });
     return (
       <div>
         <NavBarContainer/>
           <div className='body'>
             <div className='track-container'>
-
+              <ul>{episodes}</ul>
             </div>
           </div>
       </div>
