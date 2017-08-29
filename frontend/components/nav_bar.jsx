@@ -33,7 +33,7 @@ class NavBar extends React.Component {
           </Link>
           <Link to={`/upload`}>Upload</Link>
           <img src='https://a-v2.sndcdn.com/assets/images/sc-icons/win8-2dc974a1.png'></img>
-          <button onClick={this.preventDefault}>Home</button>
+          <Link to={`/stream`}>Home</Link>
           <input onSubmit={this.preventDefault}
             placeholder='Search...'
             value=''/>
