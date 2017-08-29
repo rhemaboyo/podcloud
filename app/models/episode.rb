@@ -13,7 +13,16 @@
 #
 
 class Episode < ApplicationRecord
-  validates :title, :summary, :pub_date, :podcast_id,
-            :audio_url, :duration, :audio_type, :image_url, presence: true
+  validates :title, :summary, :pub_date, :podcast_id, :image_url, presence: true
+  validates :audio_url, :duration, :audio_type,
+            presence: true, unless: 'original_audio'
+
+  has_attached_file :original_audio, presence: true, unless: 'audio_url'
+  validates_attachment_content_type :original_audio, content_type: /\Aaudio\/.*\z/,
+                                            unless: 'audio_url'
+  validates_with AttachmentSizeValidator, attributes: :original_audio,
+                                          less_than: 50.megabytes,
+                                          unless: 'audio_url'
+
   belongs_to :podcast
 end

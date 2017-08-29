@@ -10,32 +10,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170828005745) do
+ActiveRecord::Schema.define(version: 20170829160324) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "episodes", force: :cascade do |t|
-    t.string   "title",      null: false
-    t.text     "summary",    null: false
-    t.datetime "pub_date",   null: false
-    t.string   "audio_url",  null: false
-    t.integer  "duration",   null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "podcast_id", null: false
-    t.string   "audio_type", null: false
-    t.string   "image_url",  null: false
+    t.string   "title",                       null: false
+    t.text     "summary",                     null: false
+    t.datetime "pub_date",                    null: false
+    t.string   "audio_url",                   null: false
+    t.integer  "duration",                    null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.integer  "podcast_id",                  null: false
+    t.string   "audio_type",                  null: false
+    t.string   "image_url",                   null: false
+    t.string   "original_audio_file_name"
+    t.string   "original_audio_content_type"
+    t.integer  "original_audio_file_size"
+    t.datetime "original_audio_updated_at"
+    t.string   "original_logo_file_name"
+    t.string   "original_logo_content_type"
+    t.integer  "original_logo_file_size"
+    t.datetime "original_logo_updated_at"
     t.index ["title"], name: "index_episodes_on_title", using: :btree
   end
 
   create_table "podcasts", force: :cascade do |t|
-    t.string   "title",      null: false
-    t.string   "logo_url",   null: false
-    t.string   "feed_url",   null: false
-    t.integer  "itunes_id",  null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "title",                      null: false
+    t.string   "logo_url",                   null: false
+    t.string   "feed_url",                   null: false
+    t.integer  "itunes_id",                  null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.string   "original_logo_file_name"
+    t.string   "original_logo_content_type"
+    t.integer  "original_logo_file_size"
+    t.datetime "original_logo_updated_at"
     t.index ["itunes_id"], name: "index_podcasts_on_itunes_id", unique: true, using: :btree
     t.index ["title"], name: "index_podcasts_on_title", using: :btree
   end

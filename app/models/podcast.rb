@@ -12,6 +12,8 @@
 #
 
 class Podcast < ApplicationRecord
-  validates :title, :logo_url, :feed_url, :itunes_id, presence: true
+  validates :title, :logo_url, presence: true
+  validates :feed_url, :itunes_id, presence: true, unless: 'admin_id'
+  validates :admin_id, presence: true, unless: 'itunes_id'
   has_many :episodes
 end
