@@ -59,4 +59,19 @@
       -webkit-filter: blur(4px);
       filter: blur(4px);
     }
+    .enjoy {
+      visibility: visible;
+    }
+}
+
+.enjoy {
+  font-family: "Lobster", sans-serif;
+  position: absolute;
+  font-size: 50px;
+  top: 50%;
+  left: 22%;
+  z-index: 9002;
+  visibility: hidden;
+  color: white;
+  text-shadow: 3px 3px 0px black;
 }

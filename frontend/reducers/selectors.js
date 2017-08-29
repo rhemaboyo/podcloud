@@ -7,20 +7,20 @@ export const selectEpisodes = state => {
 export const getPlaylist = state => {
   const {episodes} = state.entities;
   let [beginning, end] = [[],[]];
-  let startSongIndex = -1;
+  let startSongIndex = null;
   state.entities.episodes.ord.forEach( (id, i) => {
-    if (id === episodes.currentEp[id]) startSongIndex = i;
-    if (i < startSongIndex) {
-      end.push({
-        name: episodes[id].title,
-        src: episodes[id].audioUrl,
-        img: episodes[id].imageUrl,
+    if (id === episodes.currentEp) startSongIndex = parseInt(id);
+    if (startSongIndex) {
+      beginning.push({
+        name: state.entities.episodes[id].title,
+        src: state.entities.episodes[id].audioUrl,
+        img: state.entities.episodes[id].imageUrl,
       });
     } else {
-      beginning.push({
-        name: episodes[id].title,
-        src: episodes[id].audioUrl,
-        img: episodes[id].imageUrl,
+      end.push({
+        name: state.entities.episodes[id].title,
+        src: state.entities.episodes[id].audioUrl,
+        img: state.entities.episodes[id].imageUrl,
       });
     }
   });
