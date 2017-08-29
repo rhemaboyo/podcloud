@@ -8,8 +8,13 @@ class PodcastPage extends React.Component {
   }
 
   componentDidMount() {
+    const {id} = this.props.match.params;
     if (!this.props.podcast) {
-      this.props.requestSinglePodcast(this.props.match.params.itunesId);
+      if (id[0] === 'o') {
+        this.props.requestSinglePodcast(id.slice(9));
+      } else {
+        this.props.requestSinglePodcast(id);
+      }
     }
   }
 
@@ -23,10 +28,6 @@ class PodcastPage extends React.Component {
     return (
       <div className='podcast-container'>
         <NavBarContainer/>
-        <audio ref={(audio) => (this.audio = audio)}
-               src={`${this.props.podcast.episodes[0].audio_url}`}
-               type={`${this.props.podcast.episodes[0].audio_type}`}></audio>
-        <button onClick={this.handleClick}>play</button>
       </div>
     );
   }

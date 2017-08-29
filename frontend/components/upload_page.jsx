@@ -38,7 +38,6 @@ class UploadPage extends React.Component {
   render() {
     return (
       <div>
-        <NavBarContainer/>
         <form onSubmit={this.handleSubmit}>
           <label>
             Please enter the exact title of your podcast

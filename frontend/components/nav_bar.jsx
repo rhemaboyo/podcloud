@@ -1,7 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import Modal from 'react-modal';
-import StartPodcastForm from './start_podcast_form';
+import StartPodcastFormContainer from './start_podcast_form';
+import UploadPageContainer from './upload_page_container';
 
 const customStyles = {
   overlay : {
@@ -30,7 +31,7 @@ class NavBar extends React.Component {
     super(props);
     this.state = {
       modalIsOpen: false,
-      buttonText: ''
+      form: null
     };
     this.logout = this.logout.bind(this);
     this.preventDefault = this.preventDefault.bind(this);
@@ -38,10 +39,10 @@ class NavBar extends React.Component {
     this.closeModal = this.closeModal.bind(this);
   }
 
-  openModal(e) {
+  openModal(e, form) {
     this.setState({
       modalIsOpen: true,
-      buttonText: e.currentTarget.innerHTML
+      form: form
     });
   }
 
@@ -65,6 +66,8 @@ class NavBar extends React.Component {
 
   render() {
     {/*may want to refactor all clicks into one function later*/}
+    const form1 = <StartPodcastFormContainer/>;
+    const form2 = <UploadPageContainer/>;
     return(
       <div>
         <div className='nav-container'>
@@ -73,8 +76,8 @@ class NavBar extends React.Component {
             <Link to={`/${this.props.user.username}`}>
               {this.props.user.username}
             </Link>
-            <button onClick={this.openModal}>Start Your own Podcast!</button>
-            <button>Add your favorite Podcast!</button>
+            <button onClick={e => this.openModal(e, form1)}>Start Your own Podcast!</button>
+            <button onClick={e => this.openModal(e, form2)}>Add your favorite Podcast!</button>
             <img src='https://a-v2.sndcdn.com/assets/images/sc-icons/win8-2dc974a1.png'></img>
             <Link to={`/stream`}>Home</Link>
             <input onSubmit={this.preventDefault}
@@ -88,8 +91,7 @@ class NavBar extends React.Component {
           style={customStyles}
           contentLabel="Auth Modal"
           >
-          <StartPodcastForm addOriginalPodcast={this.props.addOriginalPodcast}
-            user={this.props.user}/>
+          {this.state.form}
         </Modal>
       </div>
     );

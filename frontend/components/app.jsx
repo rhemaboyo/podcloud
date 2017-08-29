@@ -15,7 +15,7 @@ const App = () => (
       <ProtectedRoute exact path="/stream" component={ EpisodeIndexContainer } />
       {/*Protect user route for now...should be made public later*/}
       <ProtectedRoute path="/upload" component={UploadPageContainer}/>
-      <ProtectedRoute path="/podcasts/:itunesId" component={PodcastPageContainer}/>
+      <ProtectedRoute path="/podcasts/:id" component={PodcastPageContainer}/>
       <ProtectedRoute path="/:username" component={UserPageContainer}/>
     </Switch>
     <footer>
