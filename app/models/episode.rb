@@ -18,8 +18,10 @@ class Episode < ApplicationRecord
             presence: true, unless: 'original_audio'
 
   has_attached_file :original_audio, presence: true, unless: 'audio_url'
-  validates_attachment_content_type :original_audio, content_type: /\Aaudio\/.*\z/,
-                                            unless: 'audio_url'
+
+  validates_attachment_content_type :original_audio,
+                                    content_type: /\Aaudio\/.*\z/,
+                                    unless: 'audio_url'
   validates_with AttachmentSizeValidator, attributes: :original_audio,
                                           less_than: 50.megabytes,
                                           unless: 'audio_url'

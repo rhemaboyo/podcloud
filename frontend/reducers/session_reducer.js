@@ -4,7 +4,6 @@ import { RECEIVE_ERRORS,
 
 const _defaultState = {
   currentUser: null,
-  errors: [],
 };
 
 const SessionReducer = (state = _defaultState, action) => {
@@ -14,12 +13,10 @@ const SessionReducer = (state = _defaultState, action) => {
     case RECEIVE_CURRENT_USER:
       newState = merge({}, state);
       newState.currentUser = action.user;
-      newState.errors = [];
       return newState;
     case RECEIVE_ERRORS:
       newState = merge({}, state);
       newState.currentUser = null;
-      newState.errors = [].concat(action.errors);
       return newState;
     default:
       return state;

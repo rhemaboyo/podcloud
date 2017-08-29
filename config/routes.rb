@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resource :session, only: %i(create destroy)
     resources :podcasts, only: %i(create show)
     resources :episodes, only: %i(index show update destroy)
+    post 'podcasts/original', to: 'podcasts#create_original_podcast'
   end
 
   root "static_pages#root"

@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import LandingPage from './landing_page';
-import {login, signup, removeErrors} from '../actions/session_actions';
+import {login, signup} from '../actions/session_actions';
+import {removeErrors} from '../actions/error_actions';
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -12,7 +13,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
   return {
-    errors: state.session.errors,
+    errors: state.errors,
   };
 };
 

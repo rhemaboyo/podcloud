@@ -19,3 +19,14 @@ export const requestSinglePodcast = (itunesId) => {
     url: `api/podcasts/${itunesId}`,
   });
 };
+
+export const addOriginalPodcast = (podcast) => {
+  debugger;
+  return $.ajax({
+    method: 'POST',
+    url: '/api/podcasts/original',
+    processData: false,
+    contentType: false,
+    data: podcast,
+  });
+};

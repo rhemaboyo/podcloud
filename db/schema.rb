@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170829160324) do
+ActiveRecord::Schema.define(version: 20170829214719) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,15 +39,16 @@ ActiveRecord::Schema.define(version: 20170829160324) do
 
   create_table "podcasts", force: :cascade do |t|
     t.string   "title",                      null: false
-    t.string   "logo_url",                   null: false
-    t.string   "feed_url",                   null: false
-    t.integer  "itunes_id",                  null: false
+    t.string   "logo_url"
+    t.string   "feed_url"
+    t.integer  "itunes_id"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.string   "original_logo_file_name"
     t.string   "original_logo_content_type"
     t.integer  "original_logo_file_size"
     t.datetime "original_logo_updated_at"
+    t.integer  "admin_id"
     t.index ["itunes_id"], name: "index_podcasts_on_itunes_id", unique: true, using: :btree
     t.index ["title"], name: "index_podcasts_on_title", using: :btree
   end

@@ -12,8 +12,18 @@
 #
 
 class Podcast < ApplicationRecord
-  validates :title, :logo_url, presence: true
-  validates :feed_url, :itunes_id, presence: true, unless: 'admin_id'
+  validates :title, presence: true
+  validates :feed_url, :logo_url, :itunes_id, presence: true, unless: 'admin_id'
   validates :admin_id, presence: true, unless: 'itunes_id'
+
+  has_attached_file :original_logo, presence: true, unless: 'itunes_id'
+
+  validates_attachment_content_type :original_logo,
+                                    content_type: /\Aimage\/.*\z/,
+                                    unless: 'itunes_id'
+  validates_with AttachmentSizeValidator, attributes: :original_logo,
+                                          less_than: 3.megabytes,
+                                          unless: 'itunes_id'
+
   has_many :episodes
 end

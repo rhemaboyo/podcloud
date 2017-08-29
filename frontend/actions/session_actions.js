@@ -1,5 +1,5 @@
 import * as APIUtil from '../util/session_api_util';
-export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
+import {receiveErrors} from './error_actions';
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 
 export const login = user => dispatch => {
@@ -26,20 +26,9 @@ export const editUser = (id, data) => dispatch => {
       errors => dispatch(receiveErrors(errors.responseJSON)));
 };
 
-export const removeErrors = () => dispatch => {
-  return dispatch(receiveErrors([]));
-};
-
 export const receiveCurrentUser = (user) => {
   return {
     type: RECEIVE_CURRENT_USER,
     user
-  };
-};
-
-export const receiveErrors = (errors) => {
-  return {
-    type: RECEIVE_ERRORS,
-    errors
   };
 };

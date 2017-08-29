@@ -88,7 +88,8 @@ class NavBar extends React.Component {
           style={customStyles}
           contentLabel="Auth Modal"
           >
-          <StartPodcastForm />
+          <StartPodcastForm addOriginalPodcast={this.props.addOriginalPodcast}
+            user={this.props.user}/>
         </Modal>
       </div>
     );

@@ -11,6 +11,10 @@ export const requestSinglePodcast = itunesId => dispatch => {
     .then(returnedPodcast => dispatch(receiveSinglePodcast(returnedPodcast)));
 };
 
+export const addOriginalPodcast = podcast => dispatch => {
+  return APIUtil.addOriginalPodcast(podcast)
+    .then(returnedPodcast => dispatch(receiveSinglePodcast(returnedPodcast)));
+};
 
 export const receiveSinglePodcast = (payload) => {
   return {
@@ -18,10 +22,3 @@ export const receiveSinglePodcast = (payload) => {
     payload
   };
 };
-
-// export const receivePodcastErrors = (errors) => {
-//   return {
-//     type: RECEIVE_ERRORS,
-//     errors
-//   };
-// };
