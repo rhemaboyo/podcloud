@@ -13,20 +13,27 @@ class UploadEpisodeForm extends React.Component {
     this.handleUpload = this.handleUpload.bind(this);
   }
 
-  handleUpload(e) {
+  handleUpload(e, form) {
     e.preventDefault();
     const formData = new FormData();
     if (this.state.file) {
       formData.append('episode[original_audio]', this.state.file);
     }
     let date = new Date;
-    formData.append('episode[title]', this.state.title);
-    formData.append('episode[summary]', this.state.summary);
-    formData.append('episode[pub_date]', date.toString());
-    formData.append('episode[podcast_id]', this.props.podcast.id);
-    formData.append('episode[image_url]', this.props.podcast.logoUrl);
-    debugger;
-    this.props.addOriginalEpisode(formData);
+    if (this.state.title) {
+      formData.append('episode[title]', this.state.title);
+    }
+    if (this.state.summary) {
+      formData.append('episode[summary]', this.state.summary);
+    }
+    if (form === 'upload') {
+      formData.append('episode[pub_date]', date.toString());
+      formData.append('episode[podcast_id]', this.props.podcast.id);
+      formData.append('episode[image_url]', this.props.podcast.logoUrl);
+      this.props.addOriginalEpisode(formData);
+    } else {
+      this.props.editEpisode(this.props.episodeId, formData);
+    }
   }
 
   setField(e, field) {
@@ -41,10 +48,10 @@ class UploadEpisodeForm extends React.Component {
   render() {
     return(
       <div>
-        <form onSubmit={this.handleUpload}>
-          <h3>What is the title of this episode?</h3>
+        <form onSubmit={ e => this.handleUpload(e, this.props.form)}>
+          <h3>Title of this episode:</h3>
           <input type='text' onChange={(e) => this.setField(e, 'title')}/>
-          <h3>Please give us a short summary</h3>
+          <h3>Short summary of this episode:</h3>
           <input type='text' onChange={(e) => this.setField(e, 'summary')}/>
           <label htmlFor='episode-upload'>
             Choose a file to upload

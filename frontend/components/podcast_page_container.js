@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 import PodcastPage from './podcast_page';
 import {requestSinglePodcast} from '../actions/podcast_actions';
 import {addOriginalEpisode,
-        receiveCurrentEp} from '../actions/episode_actions';
+        receiveCurrentEp,
+        editEpisode,} from '../actions/episode_actions';
 import {selectEpisodes} from '../reducers/selectors';
 
 const mapDispatchToProps = (dispatch) => {
@@ -10,6 +11,7 @@ const mapDispatchToProps = (dispatch) => {
     requestSinglePodcast: itunesId => dispatch(requestSinglePodcast(itunesId)),
     receiveCurrentEp: episode => dispatch(receiveCurrentEp(episode)),
     addOriginalEpisode: episode => dispatch(addOriginalEpisode(episode)),
+    editEpisode: (id, episode) => dispatch(editEpisode(id, episode)),
   };
 };
 

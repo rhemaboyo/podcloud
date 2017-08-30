@@ -16,6 +16,12 @@ export const addOriginalEpisode = episode => dispatch => {
       dispatch(receiveSingleEpisode(returnedEpisode));
     });
 };
+export const editEpisode = (id, episode) => dispatch => {
+  return APIUtil.editEpisode(id, episode)
+    .then( returnedEpisode => {
+      dispatch(receiveSingleEpisode(returnedEpisode));
+    });
+};
 
 export const receiveSingleEpisode = (episode) => {
   return {

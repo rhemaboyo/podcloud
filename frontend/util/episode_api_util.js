@@ -14,3 +14,13 @@ export const addOriginalEpisode = episode => {
     data: episode,
   });
 };
+
+export const editEpisode = (id, episode) => {
+  return $.ajax({
+    method: 'PATCH',
+    url: `/api/episodes/${id}`,
+    processData: false,
+    contentType: false,
+    data: episode,
+  });
+};

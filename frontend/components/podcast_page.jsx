@@ -30,15 +30,18 @@ class PodcastPage extends React.Component {
     super(props);
     this.state = {
       modalIsOpen: false,
+      form: '',
     };
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
   }
 
-  openModal(e, form) {
+  openModal(e, form, editEp) {
     e.preventDefault();
     this.setState({
       modalIsOpen: true,
+      form: form,
+      editEp: editEp,
     });
   }
 
@@ -63,19 +66,19 @@ class PodcastPage extends React.Component {
 
   render() {
     if (!this.props.podcast) return null;
-    let uploadButton;
+    let uploadButton = null;
     if (this.props.user.id === this.props.podcast.adminId) {
-      uploadButton = <button onClick={this.openModal}
+      uploadButton = <button onClick={e => this.openModal(e, 'upload', null)}
                              className='episode-button'>Add a New Episode</button>;
-    } else {
-      uploadButton = null;
     }
     const episodes = this.props.episodes.map( episode => {
       return <EpisodeIndexItem
         episode={episode}
         key={episode.id}
         currentEp={this.props.currentEp}
-        receiveCurrentEp={this.props.receiveCurrentEp}/>;
+        receiveCurrentEp={this.props.receiveCurrentEp}
+        openModal={this.openModal}
+        page='podcast'/>;
     });
     return (
       <div>
@@ -92,7 +95,10 @@ class PodcastPage extends React.Component {
           style={customStyles}
           contentLabel="Auth Modal">
           <UploadEpisodeForm podcast={this.props.podcast}
-            addOriginalEpisode={this.props.addOriginalEpisode}/>
+            addOriginalEpisode={this.props.addOriginalEpisode}
+            form={this.state.form}
+            editEpisode={this.props.editEpisode}
+            episodeId={this.state.editEp}/>
         </Modal>
         <div className='body'>
           <div className='track-container'>

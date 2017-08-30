@@ -11,6 +11,11 @@ class EpisodeIndexItem extends React.Component {
   }
 
   render() {
+    let editButton = null;
+    if (this.props.page === 'upload') {
+      editButton = <button onClick={e => this.openModal(e, 'edit', this.episode.id)}
+        className='edit-button'>EditEpisode</button>;
+    }
     let enjoy = null;
     let playPauseButton = <i onClick={this.handlePlay}
        className="fa fa-play"
