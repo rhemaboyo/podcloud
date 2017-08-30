@@ -3,8 +3,10 @@ import PodcastPage from './podcast_page';
 import {requestSinglePodcast} from '../actions/podcast_actions';
 import {addOriginalEpisode,
         receiveCurrentEp,
-        editEpisode,} from '../actions/episode_actions';
+        editEpisode,
+        deleteEpisode,} from '../actions/episode_actions';
 import {selectEpisodes} from '../reducers/selectors';
+import {removeErrors} from '../actions/error_actions';
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -12,6 +14,8 @@ const mapDispatchToProps = (dispatch) => {
     receiveCurrentEp: episode => dispatch(receiveCurrentEp(episode)),
     addOriginalEpisode: episode => dispatch(addOriginalEpisode(episode)),
     editEpisode: (id, episode) => dispatch(editEpisode(id, episode)),
+    removeErrors: () => dispatch(removeErrors()),
+    deleteEpisode: episode => dispatch(deleteEpisode(episode))
   };
 };
 

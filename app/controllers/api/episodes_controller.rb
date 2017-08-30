@@ -21,12 +21,12 @@ class Api::EpisodesController < ApplicationController
       render json: @episode.errors.full_messages, status: 422
     end
   end
-  # 
-  # def destroy
-  #   @episode.find(params[:id])
-  #   if @episode
-  #     @epis
-  # end
+
+  def destroy
+    @episode = Episode.find(params[:id])
+    @episode.destroy
+    render :show
+  end
 
   private
 

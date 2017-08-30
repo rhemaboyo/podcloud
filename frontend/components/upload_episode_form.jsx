@@ -20,15 +20,21 @@ class UploadEpisodeForm extends React.Component {
       formData.append('episode[original_audio]', this.state.file);
     }
     let date = new Date;
-    formData.append('episode[title]', this.state.title);
-    formData.append('episode[summary]', this.state.summary);
+    if (this.state.title) {
+      formData.append('episode[title]', this.state.title);
+    }
+    if (this.state.summary) {
+      formData.append('episode[summary]', this.state.summary);
+    }
     if (form === 'upload') {
       formData.append('episode[pub_date]', date.toString());
       formData.append('episode[podcast_id]', this.props.podcast.id);
       formData.append('episode[image_url]', this.props.podcast.logoUrl);
-      this.props.addOriginalEpisode(formData);
+      this.props.addOriginalEpisode(formData)
+        .then(() => this.props.closeModal());
     } else {
-      this.props.editEpisode(this.props.episodeId, formData);
+      this.props.editEpisode(this.props.episodeId, formData)
+        .then(() => this.props.closeModal());
     }
   }
 

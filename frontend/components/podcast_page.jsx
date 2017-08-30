@@ -71,14 +71,18 @@ class PodcastPage extends React.Component {
       uploadButton = <button onClick={e => this.openModal(e, 'upload', null)}
                              className='episode-button'>Add a New Episode</button>;
     }
+    debugger;
     const episodes = this.props.episodes.map( episode => {
       return <EpisodeIndexItem
         episode={episode}
         key={episode.id}
         currentEp={this.props.currentEp}
+        deleteEpisode={this.props.deleteEpisode}
         receiveCurrentEp={this.props.receiveCurrentEp}
         openModal={this.openModal}
-        page='podcast'/>;
+        page='podcast'
+        userId={this.props.user.id}
+        adminId={this.props.podcast.adminId}/>;
     });
     return (
       <div>
@@ -99,7 +103,9 @@ class PodcastPage extends React.Component {
             form={this.state.form}
             editEpisode={this.props.editEpisode}
             episodeId={this.state.editEp}
-            errors={this.props.errors}/>
+            errors={this.props.errors}
+            removeErrors={this.props.removeErrors}
+            closeModal={this.closeModal}/>
         </Modal>
         <div className='body'>
           <div className='track-container'>

@@ -12,7 +12,8 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
   return {
-    user: state.session.currentUser
+    user: state.session.currentUser,
+    mostRecentPodcastId: state.entities.podcasts.ord[0],
   };
 };
 

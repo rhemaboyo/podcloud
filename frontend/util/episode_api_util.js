@@ -24,3 +24,10 @@ export const editEpisode = (id, episode) => {
     data: episode,
   });
 };
+
+export const deleteEpisode = (episode) => {
+  return $.ajax({
+    method: 'DELETE',
+    url: `/api/episodes/${episode.id}`,
+  });
+};

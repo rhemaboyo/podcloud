@@ -18,7 +18,9 @@ class StartPodcastForm extends React.Component {
     if (this.state.file) formData.append(`podcast[original_logo]`, this.state.file);
     formData.append('podcast[title]', this.state.title);
     formData.append('podcast[admin_id]', this.props.user.id);
-    this.props.addOriginalPodcast(formData);
+    debugger;
+    this.props.addOriginalPodcast(formData)
+      .then(() => this.props.history.push(`/podcasts/${this.props.mostRecentPodcastId}`));
   }
 
   setTitle(e) {

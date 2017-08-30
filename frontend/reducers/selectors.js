@@ -1,4 +1,5 @@
 export const selectEpisodes = state => {
+  debugger
   return state.entities.episodes.ord.map( id => {
     return state.entities.episodes[id];
   });
