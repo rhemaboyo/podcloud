@@ -1,0 +1,26 @@
+.podcast-banner-wrapper {
+  background-color: #f2f2f2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .podcast-image-container {
+    width: 1240px;
+    height: 400px;
+    display: flex;
+    position: relative;
+    .podcast-banner {
+      width: 1240px;
+      height: 400px;
+    }
+    .podcast-logo {
+      z-index: 100;
+      width: 200px;
+      height: 200px;
+      position: absolute;
+    }
+  }
+}
+
+.episode-button {
+  position: absolute;
+}

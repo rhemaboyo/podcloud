@@ -1,7 +1,8 @@
 import { merge } from 'lodash';
 import { RECEIVE_SINGLE_PODCAST } from '../actions/podcast_actions';
 import { RECEIVE_ALL_EPISODES,
-         RECEIVE_CURRENT_EPISODE } from '../actions/episode_actions';
+         RECEIVE_CURRENT_EPISODE,
+         RECEIVE_SINGLE_EPISODE,} from '../actions/episode_actions';
 
 const _defaultState = {
   currentEp: null,
@@ -18,6 +19,10 @@ const EpisodesReducer = (state = _defaultState, action) => {
       newState = merge({}, state);
       newState.currentEp = action.currentEp ? action.currentEp.id : null;
       return newState;
+    case RECEIVE_SINGLE_EPISODE:
+      newState = merge({}, state);
+      newState.ord.unshift(action.episode.id);
+      return merge({}, newState, {[action.episode.id]: action.episode});
     case RECEIVE_SINGLE_PODCAST:
       return merge({}, state, action.payload.episodes);
     default:

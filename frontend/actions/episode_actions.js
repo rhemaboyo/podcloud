@@ -1,6 +1,7 @@
 import * as APIUtil from '../util/episode_api_util';
 export const RECEIVE_ALL_EPISODES = 'RECEIVE_ALL_EPISODES';
 export const RECEIVE_CURRENT_EPISODE = 'RECEIVE_CURRENT_EPISODE';
+export const RECEIVE_SINGLE_EPISODE = 'RECEIVE_SINGLE_EPISODE';
 
 export const requestAllEpisodes = () => dispatch => {
   return APIUtil.requestAllEpisodes()
@@ -9,11 +10,24 @@ export const requestAllEpisodes = () => dispatch => {
     });
 };
 
+export const addOriginalEpisode = episode => dispatch => {
+  return APIUtil.addOriginalEpisode(episode)
+    .then( returnedEpisode => {
+      dispatch(receiveSingleEpisode(returnedEpisode));
+    });
+};
+
+export const receiveSingleEpisode = (episode) => {
+  return {
+    type: RECEIVE_SINGLE_EPISODE,
+    episode,
+  };
+};
 
 export const receiveAllEpisodes = (payload) => {
   return {
     type: RECEIVE_ALL_EPISODES,
-    payload
+    payload,
   };
 };
 

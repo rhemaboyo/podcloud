@@ -76,9 +76,13 @@ class NavBar extends React.Component {
             <Link to={`/${this.props.user.username}`}>
               {this.props.user.username}
             </Link>
-            <button onClick={e => this.openModal(e, form1)}>Start Your own Podcast!</button>
-            <button onClick={e => this.openModal(e, form2)}>Add your favorite Podcast!</button>
-            <img src='https://a-v2.sndcdn.com/assets/images/sc-icons/win8-2dc974a1.png'></img>
+            <button onClick={e => this.openModal(e, form1)}>
+              Start Your own Podcast!</button>
+            <button onClick={e => this.openModal(e, form2)}>
+              Add your favorite Podcast!</button>
+            <img src=
+              'https://a-v2.sndcdn.com/assets/images/sc-icons/win8-2dc974a1.png'
+            ></img>
             <Link to={`/stream`}>Home</Link>
             <input onSubmit={this.preventDefault}
               placeholder='Search...'
