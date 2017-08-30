@@ -22,6 +22,7 @@ const mapStateToProps = (state, ownProps) => {
     episodes: selectEpisodes(state),
     currentEp: state.entities.episodes.currentEp,
     user: state.session.currentUser,
+    errors: state.errors,
   };
 };
 

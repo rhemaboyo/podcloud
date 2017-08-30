@@ -1,1 +1,1 @@
-json.partial! 'api/users/user.json.jbuilder', episode: @episode
+json.partial! 'api/episodes/episode', episode: @episode

@@ -12,8 +12,8 @@ class EpisodeIndexItem extends React.Component {
 
   render() {
     let editButton = null;
-    if (this.props.page === 'upload') {
-      editButton = <button onClick={e => this.openModal(e, 'edit', this.episode.id)}
+    if (this.props.page === 'podcast') {
+      editButton = <button onClick={e => this.props.openModal(e, 'edit', this.props.episode.id)}
         className='edit-button'>EditEpisode</button>;
     }
     let enjoy = null;
@@ -32,6 +32,7 @@ class EpisodeIndexItem extends React.Component {
           {enjoy}
           <img className='episode' src={`${this.props.episode.imageUrl}`}/>
         </div>
+        {editButton}
       </li>
     );
   }

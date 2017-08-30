@@ -98,7 +98,8 @@ class PodcastPage extends React.Component {
             addOriginalEpisode={this.props.addOriginalEpisode}
             form={this.state.form}
             editEpisode={this.props.editEpisode}
-            episodeId={this.state.editEp}/>
+            episodeId={this.state.editEp}
+            errors={this.props.errors}/>
         </Modal>
         <div className='body'>
           <div className='track-container'>

@@ -2,6 +2,7 @@ import * as APIUtil from '../util/episode_api_util';
 export const RECEIVE_ALL_EPISODES = 'RECEIVE_ALL_EPISODES';
 export const RECEIVE_CURRENT_EPISODE = 'RECEIVE_CURRENT_EPISODE';
 export const RECEIVE_SINGLE_EPISODE = 'RECEIVE_SINGLE_EPISODE';
+import {receiveErrors} from './error_actions';
 
 export const requestAllEpisodes = () => dispatch => {
   return APIUtil.requestAllEpisodes()
@@ -18,9 +19,8 @@ export const addOriginalEpisode = episode => dispatch => {
 };
 export const editEpisode = (id, episode) => dispatch => {
   return APIUtil.editEpisode(id, episode)
-    .then( returnedEpisode => {
-      dispatch(receiveSingleEpisode(returnedEpisode));
-    });
+    .then( returnedEpisode => dispatch(receiveSingleEpisode(returnedEpisode)),
+      errors => dispatch(receiveErrors(errors.responseJSON)));
 };
 
 export const receiveSingleEpisode = (episode) => {

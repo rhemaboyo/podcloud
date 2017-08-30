@@ -20,12 +20,8 @@ class UploadEpisodeForm extends React.Component {
       formData.append('episode[original_audio]', this.state.file);
     }
     let date = new Date;
-    if (this.state.title) {
-      formData.append('episode[title]', this.state.title);
-    }
-    if (this.state.summary) {
-      formData.append('episode[summary]', this.state.summary);
-    }
+    formData.append('episode[title]', this.state.title);
+    formData.append('episode[summary]', this.state.summary);
     if (form === 'upload') {
       formData.append('episode[pub_date]', date.toString());
       formData.append('episode[podcast_id]', this.props.podcast.id);
@@ -46,6 +42,9 @@ class UploadEpisodeForm extends React.Component {
   }
 
   render() {
+    const errors = this.props.errors.map((error, i) => {
+      return <li key={i}>{error}</li>;
+    });
     return(
       <div>
         <form onSubmit={ e => this.handleUpload(e, this.props.form)}>
@@ -58,6 +57,7 @@ class UploadEpisodeForm extends React.Component {
             <input type='file' id='episode-upload' onChange={this.setFile}/>
           </label>
           <input type='submit'></input>
+          <ul>{errors}</ul>
         </form>
       </div>
     );
