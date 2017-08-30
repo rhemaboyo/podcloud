@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import Modal from 'react-modal';
-import StartPodcastFormContainer from './start_podcast_form';
+import StartPodcastFormContainer from './start_podcast_form_container';
 import UploadPageContainer from './upload_page_container';
 
 const customStyles = {
@@ -66,8 +66,8 @@ class NavBar extends React.Component {
 
   render() {
     {/*may want to refactor all clicks into one function later*/}
-    const form1 = <StartPodcastFormContainer/>;
-    const form2 = <UploadPageContainer/>;
+    const form1 = <StartPodcastFormContainer closeModal={this.closeModal}/>;
+    const form2 = <UploadPageContainer closeModal={this.closeModal}/>;
     return(
       <div>
         <div className='nav-container'>

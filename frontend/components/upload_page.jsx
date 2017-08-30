@@ -17,6 +17,7 @@ class UploadPage extends React.Component {
   }
 
   handleSubmit(e) {
+    self = this;
     e.preventDefault();
     let podcast;
     $.ajax({
@@ -30,8 +31,10 @@ class UploadPage extends React.Component {
       }),
     }).then(null, (response) => {
       podcast = JSON.parse(response.responseText).results[0];
-      this.props.addPodcast(podcast);
-      this.props.history.push(`/podcasts/${podcast.collectionId}`);
+      this.props.addPodcast(podcast).then( res => {
+        self.props.history.push(`/podcasts/${res.payload.podcast.id}`);
+        self.props.closeModal();
+      });
     });
   }
 

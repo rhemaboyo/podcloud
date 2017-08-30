@@ -1,8 +1,13 @@
 export const selectEpisodes = state => {
-  debugger
   return state.entities.episodes.ord.map( id => {
     return state.entities.episodes[id];
   });
+};
+
+export const selectMostRecentPodcastId = state => {
+  const ids = Object.keys(state.entities.podcasts);
+  if (ids.length === 0) return null;
+  return ids[0];
 };
 
 export const getPlaylist = state => {

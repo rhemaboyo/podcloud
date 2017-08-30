@@ -13,14 +13,17 @@ class StartPodcastForm extends React.Component {
   }
 
   handleUpload(e) {
+    const self = this;
     e.preventDefault();
     const formData = new FormData();
     if (this.state.file) formData.append(`podcast[original_logo]`, this.state.file);
     formData.append('podcast[title]', this.state.title);
     formData.append('podcast[admin_id]', this.props.user.id);
-    debugger;
     this.props.addOriginalPodcast(formData)
-      .then(() => this.props.history.push(`/podcasts/${this.props.mostRecentPodcastId}`));
+      .then((res) => {
+        self.props.history.push(`/podcasts/${res.payload.podcast.id}`);
+        self.props.closeModal();
+      });
   }
 
   setTitle(e) {

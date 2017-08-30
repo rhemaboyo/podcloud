@@ -1,7 +1,9 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import StartPodcastForm from './start_podcast_form';
 import {addOriginalPodcast} from '../actions/podcast_actions';
 import {removeErrors} from '../actions/podcast_actions';
+import {selectMostRecentPodcastId} from '../reducers/selectors';
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -13,8 +15,9 @@ const mapDispatchToProps = (dispatch) => {
 const mapStateToProps = (state) => {
   return {
     user: state.session.currentUser,
-    mostRecentPodcastId: state.entities.podcasts.ord[0],
+    podcastId: selectMostRecentPodcastId(state),
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(StartPodcastForm);
+export default
+  withRouter(connect(mapStateToProps, mapDispatchToProps)(StartPodcastForm));

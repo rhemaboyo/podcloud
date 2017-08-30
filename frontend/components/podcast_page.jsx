@@ -71,7 +71,6 @@ class PodcastPage extends React.Component {
       uploadButton = <button onClick={e => this.openModal(e, 'upload', null)}
                              className='episode-button'>Add a New Episode</button>;
     }
-    debugger;
     const episodes = this.props.episodes.map( episode => {
       return <EpisodeIndexItem
         episode={episode}

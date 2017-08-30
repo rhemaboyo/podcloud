@@ -14,7 +14,6 @@ class EpisodeIndex extends React.Component {
   render() {
     if (this.props.episodes.length === 0) return null;
     const episodes = this.props.episodes.map( episode => {
-      debugger
       return <EpisodeIndexItem
         episode={episode}
         key={episode.id}
