@@ -24,7 +24,7 @@ const EpisodesReducer = (state = _defaultState, action) => {
       newState.ord.unshift(action.episode.id);
       return merge({}, newState, {[action.episode.id]: action.episode});
     case RECEIVE_SINGLE_PODCAST:
-      return merge({}, state, action.payload.episodes);
+      return action.payload.episodes;
     default:
       return state;
   }

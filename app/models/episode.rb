@@ -27,10 +27,4 @@ class Episode < ApplicationRecord
                                           unless: 'audio_url'
 
   belongs_to :podcast
-
-  after_initialize :ensure_audio_url
-
-  def ensure_audio_url
-    self.audio_url ||= self.original_audio.url
-  end
 end

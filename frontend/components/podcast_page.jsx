@@ -2,6 +2,7 @@ import React from 'react';
 import NavBarContainer from './nav_bar_container';
 import Modal from 'react-modal';
 import UploadEpisodeForm from './upload_episode_form';
+import EpisodeIndexItem from './episode_index_item';
 
 const customStyles = {
   overlay : {
@@ -55,9 +56,9 @@ class PodcastPage extends React.Component {
     //     this.props.requestSinglePodcast(id);
     //   }
     // }
-    if (!this.props.podcast) {
+    // if (!this.props.podcast) {
       this.props.requestSinglePodcast(id);
-    }
+    // }
   }
 
   render() {
@@ -69,18 +70,21 @@ class PodcastPage extends React.Component {
     } else {
       uploadButton = null;
     }
+    const episodes = this.props.episodes.map( episode => {
+      return <EpisodeIndexItem
+        episode={episode}
+        key={episode.id}
+        currentEp={this.props.currentEp}
+        receiveCurrentEp={this.props.receiveCurrentEp}/>;
+    });
     return (
-      <div className='podcast-container'>
+      <div>
         <NavBarContainer/>
         <div className="podcast-banner-wrapper">
           <div className='podcast-image-container'>
             <img src="https://s3.amazonaws.com/podcloud-dev/4354977344_47158f8c82_c.jpg" className='podcast-banner'/>
             <img src={this.props.podcast.logoUrl} className='podcast-logo'/>
           </div>
-        </div>
-        <div className='body'>
-          <div className='track-container'></div>
-          {uploadButton}
         </div>
         <Modal
           isOpen={this.state.modalIsOpen}
@@ -90,6 +94,12 @@ class PodcastPage extends React.Component {
           <UploadEpisodeForm podcast={this.props.podcast}
             addOriginalEpisode={this.props.addOriginalEpisode}/>
         </Modal>
+        <div className='body'>
+          <div className='track-container'>
+          {uploadButton}
+          <ul>{episodes}</ul>
+          </div>
+        </div>
       </div>
     );
   }

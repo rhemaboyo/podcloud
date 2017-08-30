@@ -12,4 +12,5 @@ json.episodes do
       json.partial! 'api/episodes/episode', episode: episode
     end
   end
+  json.ord @episodes.map(&:id)
 end
