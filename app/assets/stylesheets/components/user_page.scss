@@ -157,3 +157,29 @@ a:hover {
   color: #f50;
   cursor: pointer;
 }
+.pod-container {
+  width: 310px;
+  height: 330px;
+  display: flex;
+  float: left;
+  position: relative;
+  .user-pod-img {
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    align-self: center;
+    display: inline-block;
+    left: 10%;
+  }
+  img {
+    width: 250px;
+    height: 250px;
+  }
+  .user-pod-title {
+    font-family: 'Zilla Slab Highlight', sans-serif;
+    color: black;
+    font-weight: bold;
+    margin: 0 auto;
+    align-self: flex-end;
+  }
+}

@@ -20,6 +20,13 @@ export const requestSinglePodcast = (itunesId) => {
   });
 };
 
+export const getAllPodcasts = () => {
+  return $.ajax({
+    method: 'GET',
+    url: `api/podcasts/`,
+  });
+};
+
 export const addOriginalPodcast = (podcast) => {
   return $.ajax({
     method: 'POST',

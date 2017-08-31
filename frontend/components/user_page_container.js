@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import UserPage from './user_page';
 import {logout, editUser} from '../actions/session_actions';
 import {selectAllPodcasts} from '../reducers/selectors';
-import {getAllPodcasts} from '../actions.podcast_actions';
+import {getAllPodcasts} from '../actions/podcast_actions';
 
 const mapDispatchToProps = (dispatch) => {
   return {

@@ -14,6 +14,10 @@ class UserPage extends React.Component {
     this.changePage = this.changePage.bind(this);
   }
 
+  componentDidMount() {
+    this.props.getAllPodcasts();
+  }
+
   handleUpload(e, key) {
     const file = e.currentTarget.files[0];
     const formData = new FormData();
@@ -28,7 +32,14 @@ class UserPage extends React.Component {
   render() {
     let [tab1, tab2]= ['orange', 'black'];
     let recommends = this.props.podcasts.map( podcast => {
-      return <Link></Link>;
+      return <li className='pod-container'>
+               <Link to={`/podcasts/${podcast.id}`} className='user-pod-img'>
+                 <img src={podcast.logoUrl}/>
+               </Link>
+               <Link to={`/podcasts/${podcast.id}`} className='user-pod-title'>
+                 {podcast.title}
+               </Link>
+             </li>;
     });
     if (this.state.page === 'created') [tab1, tab2] = ['black', 'orange'];
     return (
@@ -65,6 +76,7 @@ class UserPage extends React.Component {
             <a onClick={() => this.changePage('created')}
                className={tab2}>Created Podcasts</a>
           </div>
+          <div className='rec-bucket'>{recommends}</div>
         </div>
       </div>
       </div>
