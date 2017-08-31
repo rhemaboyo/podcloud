@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Podcast.delete_all!
+Podcast.delete_all
 
 
 Podcast.create!(title:"Planet Money",logo_url:"http://is3.mzstatic.com/image/thumb/Music62/v4/9c/26/62/9c266213-2a31-e6bd-ced0-3f88bffa52c7/source/600x600bb.jpg",feed_url:"https://www.npr.org/rss/podcast.php?id=510289",itunes_id:290783428)
