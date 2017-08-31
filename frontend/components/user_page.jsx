@@ -36,7 +36,7 @@ class UserPage extends React.Component {
           </div>
           <p>{this.props.user.username}</p>
           <div className="banner-image-wrapper">
-            <img src={this.props.user.banner_image} className='user-banner'/>
+            <img src={this.props.user.bannerImage} className='user-banner'/>
             <label htmlFor="banner-upload" className='banner-upload-label'>
               <i className="fa fa-camera" aria-hidden="true"></i>
               Update Banner

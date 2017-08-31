@@ -22,6 +22,15 @@ class Api::EpisodesController < ApplicationController
     end
   end
 
+  def show
+    @episode = Episode.find(params[:id])
+    if @episode
+      render :show
+    else
+      render json: ['No such podcast available'], status: 404
+    end
+  end
+
   def destroy
     @episode = Episode.find(params[:id])
     @episode.destroy

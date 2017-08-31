@@ -5,6 +5,7 @@ import {AuthRoute, ProtectedRoute} from '../util/route_util';
 import {Route, Switch} from 'react-router-dom';
 import UserPageContainer from './user_page_container';
 import UploadPageContainer from './upload_page_container';
+import EpisodePageContainer from './episode_page_container';
 import PodcastPageContainer from './podcast_page_container';
 import ProgressBarContainer from './progress_bar_container';
 
@@ -16,6 +17,7 @@ const App = () => (
       {/*Protect user route for now...should be made public later*/}
       <ProtectedRoute path="/upload" component={UploadPageContainer}/>
       <ProtectedRoute path="/podcasts/:id" component={PodcastPageContainer}/>
+      <ProtectedRoute path="/episodes/:id" component={EpisodePageContainer}/>
       <ProtectedRoute path="/:username" component={UserPageContainer}/>
     </Switch>
     <footer>

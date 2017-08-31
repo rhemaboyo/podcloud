@@ -88,7 +88,7 @@ class PodcastPage extends React.Component {
         <NavBarContainer/>
         <div className="podcast-banner-wrapper">
           <div className='podcast-image-container'>
-            <img src="https://s3.amazonaws.com/podcloud-dev/4354977344_47158f8c82_c.jpg" className='podcast-banner'/>
+            <img src="https://s3.amazonaws.com/podcloud-dev/ezgif.com-crop+(1).gif" className='podcast-banner'/>
             <img src={this.props.podcast.logoUrl} className='podcast-logo'/>
           </div>
         </div>

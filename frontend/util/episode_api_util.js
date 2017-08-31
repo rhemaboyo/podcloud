@@ -5,6 +5,13 @@ export const requestAllEpisodes = () => {
   });
 };
 
+export const requestSingleEpisode = (id) => {
+  return $.ajax({
+    method: 'GET',
+    url: `/api/episodes/${id}`,
+  });
+};
+
 export const addOriginalEpisode = episode => {
   return $.ajax({
     method: 'POST',
