@@ -25,9 +25,9 @@ class Podcast < ApplicationRecord
                                           less_than: 3.megabytes,
                                           unless: 'itunes_id'
 
-  has_many :episodes
+  has_many :episodes, dependent: :delete_all
   belongs_to :admin,
-    class_name: :User,
-    primary_key: :user_id,
-    foreign_key: :admin_id
+             class_name: :User,
+             primary_key: :user_id,
+             foreign_key: :admin_id
 end

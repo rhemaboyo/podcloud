@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :users, only: %i(create show update)
     resource :session, only: %i(create destroy)
-    resources :podcasts, only: %i(create show)
+    resources :podcasts, only: %i(create index show)
     resources :episodes, only: %i(index create show update destroy)
     resources :comments, only: %i(create update destroy)
     post 'podcasts/original', to: 'podcasts#create_original_podcast'

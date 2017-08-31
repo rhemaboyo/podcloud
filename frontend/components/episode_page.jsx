@@ -51,14 +51,16 @@ class EpisodePage extends React.Component {
         </div>
         <div className='body'>
           <div className='track-container'>
-            <form onSubmit={this.handleSubmit}>
-              <input type='text'
-                value={this.state.body}
-                onChange={this.handleChange}
-                placeholder='Leave a comment...'
-                className='comment-input'/>
-            </form>
-            <ul>{comments}</ul>
+            <div className='details-container'>
+              <form onSubmit={this.handleSubmit}>
+                <input type='text'
+                  value={this.state.body}
+                  onChange={this.handleChange}
+                  placeholder='Leave a comment...'
+                  className='comment-input'/>
+              </form>
+              <ul>{comments}</ul>
+            </div>
           </div>
         </div>
       </div>

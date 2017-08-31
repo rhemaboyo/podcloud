@@ -9,6 +9,10 @@ class Api::PodcastsController < ApplicationController
     end
   end
 
+  def index
+    @podcasts = Podcast.all
+  end
+
   def create_original_podcast
     @podcast = Podcast.new(podcast_params)
     if @podcast.save
