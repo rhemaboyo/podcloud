@@ -19,10 +19,38 @@
 //   }
 // }
 
+.ep-title {
+  z-index: 9005;
+  display: inline-block;
+  align-self: flex-end;
+  position: absolute;
+  text-align: center;
+  top: 260px;
+  :first-child {
+    font-family: 'Zilla Slab Highlight', sans-serif;
+    color: black;
+    font-weight: bold;
+  }
+  a {
+    margin: 5px;
+    text-decoration: none;
+    display: block;
+  }
+  a:hover {
+    cursor: pointer;
+  }
+  :last-child {
+    font-family: 'Roboto', sans-serif;
+    color: black;
+    font-weight: thin;
+    font-size: 13px;
+  }
+}
+
 .episode-container {
   position: relative;
-  width: 300px;
-  height: 300px;
+  width: 310px;
+  height: 350px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -39,9 +67,10 @@
     text-shadow: 3px 3px 0px white;
   }
   .episode {
-    position: absolute;
-    width: 300px;
-    height: 300px;
+    position: relative;
+    align-self: baseline;
+    width: 250px;
+    height: 250px;
     top: 0px;
     left: 0px;
     z-index: 9001;

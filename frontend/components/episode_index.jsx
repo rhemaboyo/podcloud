@@ -25,7 +25,7 @@ class EpisodeIndex extends React.Component {
         <NavBarContainer/>
           <div className='body'>
             <div className='track-container'>
-              <ul>{episodes}</ul>
+              <ul className='episode-bucket'>{episodes}</ul>
             </div>
           </div>
       </div>

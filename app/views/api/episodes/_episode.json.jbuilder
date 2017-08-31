@@ -1,4 +1,5 @@
 json.extract! episode, :id, :title, :summary, :pub_date, :podcast_id, :image_url
+json.podcast_title episode.podcast.title
 if episode.duration
   json.audio_url episode.audio_url
 else

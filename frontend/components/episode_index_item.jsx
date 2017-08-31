@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class EpisodeIndexItem extends React.Component {
   constructor(props) {
@@ -37,6 +38,10 @@ class EpisodeIndexItem extends React.Component {
           {playPauseButton}
           {enjoy}
           <img className='episode' src={`${this.props.episode.imageUrl}`}/>
+          <div className='ep-title'>
+            <Link to={`/podcasts/${this.props.episode.podcastId}`}>{this.props.episode.podcastTitle}</Link>
+            <Link to={`/episodes/${this.props.episode.id}`}>{this.props.episode.title}</Link>
+          </div>
         </div>
         {editButton}
         {deleteButton}
