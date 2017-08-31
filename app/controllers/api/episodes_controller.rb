@@ -23,8 +23,9 @@ class Api::EpisodesController < ApplicationController
   end
 
   def show
-    @episode = Episode.find(params[:id])
+    @episode = Episode.includes(comments: :user).find(params[:id])
     if @episode
+      @comments = @episode.comments.order(created_at: "DESC")
       render :show
     else
       render json: ['No such podcast available'], status: 404

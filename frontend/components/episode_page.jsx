@@ -1,5 +1,6 @@
 import React from 'react';
 import NavBarContainer from './nav_bar_container';
+import CommentIndexItemContainer from './comment_index_item_container';
 
 class EpisodePage extends React.Component {
   constructor(props) {
@@ -11,13 +12,21 @@ class EpisodePage extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    this.props.addComment({ episode { body: this.state.comment);
-  }
-
   handleChange(e) {
     this.setState({body: e.currentTarget.value});
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.addComment({
+      comment: {
+        body: this.state.body,
+        user_id: this.props.user.id,
+        episode_id: this.props.episode.id,
+        image_url: this.props.user.avatar,
+      }
+    });
+    this.setState({body: ''});
   }
 
   componentDidMount() {
@@ -26,6 +35,11 @@ class EpisodePage extends React.Component {
   }
   render() {
     if (!this.props.episode) return null;
+    const comments = this.props.comments.map( comment => {
+      return <CommentIndexItemContainer
+                key={comment.id}
+                comment={comment}/>;
+    });
     return(
       <div>
         <NavBarContainer/>
@@ -39,10 +53,12 @@ class EpisodePage extends React.Component {
           <div className='track-container'>
             <form onSubmit={this.handleSubmit}>
               <input type='text'
+                value={this.state.body}
                 onChange={this.handleChange}
                 placeholder='Leave a comment...'
                 className='comment-input'/>
             </form>
+            <ul>{comments}</ul>
           </div>
         </div>
       </div>

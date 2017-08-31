@@ -59,10 +59,10 @@ export const receiveNewEpisode = (episode) => {
   };
 };
 
-export const receiveSingleEpisode = (episode) => {
+export const receiveSingleEpisode = (payload) => {
   return {
     type: RECEIVE_SINGLE_EPISODE,
-    episode,
+    payload,
   };
 };
 

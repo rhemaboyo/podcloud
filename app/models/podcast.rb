@@ -26,4 +26,8 @@ class Podcast < ApplicationRecord
                                           unless: 'itunes_id'
 
   has_many :episodes
+  belongs_to :admin,
+    class_name: :User,
+    primary_key: :user_id,
+    foreign_key: :admin_id
 end

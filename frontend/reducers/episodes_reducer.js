@@ -27,7 +27,8 @@ const EpisodesReducer = (state = _defaultState, action) => {
     case RECEIVE_DELETED_EPISODE:
       newState = merge({}, state);
       delete newState[action.episode.id];
-      newState.ord = newState.ord.filter(id => parseInt(id) !== action.episode.id);
+      newState.ord = newState.ord
+        .filter(id => parseInt(id) !== action.episode.id);
       return newState;
     case RECEIVE_NEW_EPISODE:
       newState = merge({}, state);
@@ -36,7 +37,9 @@ const EpisodesReducer = (state = _defaultState, action) => {
     case RECEIVE_SINGLE_PODCAST:
       return action.payload.episodes;
     case RECEIVE_SINGLE_EPISODE:
-      return {[action.episode.id]: action.episode, ord: [action.episode.id],};
+      return {[action.payload.episode.id]: action.payload.episode,
+              ord: [action.payload.episode.id],
+              currentEp: state.currentEp};
     default:
       return state;
   }
