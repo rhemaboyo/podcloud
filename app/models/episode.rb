@@ -27,5 +27,5 @@ class Episode < ApplicationRecord
                                           unless: 'audio_url'
 
   belongs_to :podcast
-  has_many :comments
+  has_many :comments, dependent: :delete_all
 end

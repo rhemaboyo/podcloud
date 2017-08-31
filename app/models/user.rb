@@ -33,7 +33,7 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
-  has_many :comments
+  has_many :comments, dependent: :delete_all
 
   attr_reader :password
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import NavBarContainer from './nav_bar_container';
+import {Link} from 'react-router-dom';
 
 class UserPage extends React.Component {
   constructor(props) {
@@ -7,8 +8,10 @@ class UserPage extends React.Component {
     this.state = {
       imageFile: null,
       imageUrl: null,
+      page: 'recommended',
     };
     this.handleUpload = this.handleUpload.bind(this);
+    this.changePage = this.changePage.bind(this);
   }
 
   handleUpload(e, key) {
@@ -18,10 +21,18 @@ class UserPage extends React.Component {
     this.props.editUser(this.props.user.id, formData);
   }
 
-
+  changePage(page) {
+    this.setState({page: page});
+  }
 
   render() {
+    let [tab1, tab2]= ['orange', 'black'];
+    let recommends = this.props.podcasts.map( podcast => {
+      return <Link></Link>;
+    });
+    if (this.state.page === 'created') [tab1, tab2] = ['black', 'orange'];
     return (
+      <div>
       <div className='user-container'>
         <NavBarContainer/>
         <div className='user-image-container'>
@@ -45,9 +56,17 @@ class UserPage extends React.Component {
             </label>
           </div>
         </div>
-        <div className='body'>
-          <div className='track-container'></div>
+      </div>
+      <div className='user-body'>
+        <div className='user-track-container'>
+          <div className='tabs'>
+            <a onClick={() => this.changePage('recommended')}
+               className={tab1}>Recommended Podcasts</a>
+            <a onClick={() => this.changePage('created')}
+               className={tab2}>Created Podcasts</a>
+          </div>
         </div>
+      </div>
       </div>
     );
   }

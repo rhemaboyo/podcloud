@@ -4,6 +4,12 @@ export const selectEpisodes = state => {
   });
 };
 
+export const selectAllPodcasts = state => {
+  return Object.keys(state.entities.podcasts).map(id => {
+    return state.entities.podcasts[id];
+  });
+};
+
 export const selectAllComments = state => {
   return state.entities.comments.ord.map( id => {
     return state.entities.comments[id];
