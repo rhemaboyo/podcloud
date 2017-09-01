@@ -29,6 +29,12 @@ class EpisodePage extends React.Component {
     this.setState({body: ''});
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.match.params.id !== nextProps.match.params.id){
+      this.props.requestSingleEpisode(nextProps.match.params.id);
+    }
+  }
+
   componentDidMount() {
     const {id} = this.props.match.params;
     this.props.requestSingleEpisode(id);
@@ -49,17 +55,24 @@ class EpisodePage extends React.Component {
             <img src={this.props.episode.imageUrl} className='episode-logo'/>
           </div>
         </div>
-        <div className='body'>
-          <div className='track-container'>
+        <div className='user-body'>
+          <div className='episode-comment-container'>
             <div className='details-container'>
-              <form onSubmit={this.handleSubmit}>
-                <input type='text'
-                  value={this.state.body}
-                  onChange={this.handleChange}
-                  placeholder='Leave a comment...'
-                  className='comment-input'/>
-              </form>
+              <div className='comment-form-wrapper'>
+                <img src={this.props.user.avatar} className='user-comment-img'></img>
+                <form onSubmit={this.handleSubmit}>
+                  <input type='text'
+                    value={this.state.body}
+                    onChange={this.handleChange}
+                    placeholder='Leave a comment...'
+                    className='comment-input'/>
+                </form>
+              </div>
               <ul>{comments}</ul>
+              <div className='summary'>
+                <h1 className='about'>About this episode</h1>
+                <p className='text'>{this.props.episode.summary.split('<')[0]}</p>
+              </div>
             </div>
           </div>
         </div>

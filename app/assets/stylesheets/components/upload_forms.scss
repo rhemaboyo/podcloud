@@ -1,0 +1,36 @@
+.upload-form {
+  width: 450px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  form {
+    align-self: center;
+    display: block;
+    p {
+      font-size: 20px;
+    }
+    :nth-child(2) {
+      display: table-column;
+      margin: 20px;
+      border-radius: 5px;
+      height: 27px;
+      width: 360px;
+      font-size: 20px;
+      border: none;
+    }
+    :nth-child(3) {
+      display: table-column;
+      border-radius: 5px;
+      height: 35px;
+      width: 370px;
+      font-size: 20px;
+      background-color: #f50;
+      color: white;
+      border: none;
+      font-family: 'overpass', sans-serif;
+    }
+  }
+}

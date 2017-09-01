@@ -40,12 +40,13 @@ class UploadPage extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='upload-form'>
         <form onSubmit={this.handleSubmit}>
-          <label>
-            Please enter the exact title of your podcast
-            <input onChange={this.handleChange} type='text'/>
-          </label>
+          <p>
+            Please enter the exact title of the podcast
+          </p>
+          <input onChange={this.handleChange} placeholder='Type here...' type='text'/>
+          <input type='submit'></input>
         </form>
       </div>
     );

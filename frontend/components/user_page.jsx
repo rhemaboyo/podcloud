@@ -1,6 +1,7 @@
 import React from 'react';
 import NavBarContainer from './nav_bar_container';
 import {Link} from 'react-router-dom';
+import PodcastIndexItem from './podcast_index_item';
 
 class UserPage extends React.Component {
   constructor(props) {
@@ -14,7 +15,14 @@ class UserPage extends React.Component {
     this.changePage = this.changePage.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.match.params.username !== nextProps.match.params.username){
+      this.props.getUser(nextProps.match.params.username);
+    }
+  }
+
   componentDidMount() {
+    this.props.getUser(this.props.match.params.username);
     this.props.getAllPodcasts();
   }
 
@@ -30,24 +38,28 @@ class UserPage extends React.Component {
   }
 
   render() {
+    const {pageUser} = this.props;
+    if (!this.props.pageUser) return null;
+    let [recommends, created] = [null, null];
     let [tab1, tab2]= ['orange', 'black'];
-    let recommends = this.props.podcasts.map( podcast => {
-      return <li className='pod-container'>
-               <Link to={`/podcasts/${podcast.id}`} className='user-pod-img'>
-                 <img src={podcast.logoUrl}/>
-               </Link>
-               <Link to={`/podcasts/${podcast.id}`} className='user-pod-title'>
-                 {podcast.title}
-               </Link>
-             </li>;
-    });
+    if (this.state.page === 'recommended') {
+      recommends = this.props.podcasts.map( podcast => {
+        return <PodcastIndexItem key={podcast.id} podcast={podcast}/>;
+      });
+    } else {
+      created = this.props.podcasts.filter( podcast => {
+        return podcast.admin_id === pageUser.id;
+      }).map( podcast => {
+        return <PodcastIndexItem key={podcast.id} podcast={podcast}/>;
+      });
+    }
     if (this.state.page === 'created') [tab1, tab2] = ['black', 'orange'];
     return (
       <div>
       <div className='user-container'>
         <NavBarContainer/>
         <div className='user-image-container'>
-          <img src={this.props.user.avatar} className='avatar'/>
+          <img src={this.props.pageUser.avatar} className='avatar'/>
           <div className='avatar'>
             <label htmlFor="avatar-upload" className='avatar-upload-label'>
               <i className="fa fa-camera" aria-hidden="true"></i>
@@ -56,9 +68,9 @@ class UserPage extends React.Component {
                   onChange={e => this.handleUpload(e, 'avatar')}/>
               </label>
           </div>
-          <p>{this.props.user.username}</p>
+          <p>{this.props.pageUser.username}</p>
           <div className="banner-image-wrapper">
-            <img src={this.props.user.bannerImage} className='user-banner'/>
+            <img src={this.props.pageUser.bannerImage} className='user-banner'/>
             <label htmlFor="banner-upload" className='banner-upload-label'>
               <i className="fa fa-camera" aria-hidden="true"></i>
               Update Banner
@@ -76,7 +88,10 @@ class UserPage extends React.Component {
             <a onClick={() => this.changePage('created')}
                className={tab2}>Created Podcasts</a>
           </div>
-          <div className='rec-bucket'>{recommends}</div>
+          <div className='rec-bucket'>
+            {recommends}
+            {created}
+          </div>
         </div>
       </div>
       </div>

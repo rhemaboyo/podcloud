@@ -8,6 +8,7 @@ import UploadPageContainer from './upload_page_container';
 import EpisodePageContainer from './episode_page_container';
 import PodcastPageContainer from './podcast_page_container';
 import ProgressBarContainer from './progress_bar_container';
+import NavBarContainer from './nav_bar_container';
 
 const App = () => (
   <div>

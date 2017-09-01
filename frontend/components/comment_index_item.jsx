@@ -15,14 +15,17 @@ class CommentIndexItem extends React.Component {
   render() {
     let deleteButton = null;
     if (this.props.user.id === this.props.comment.userId) {
-      deleteButton = <button onClick={this.handleDelete}>delete</button>;
+      deleteButton = <button className='delete'onClick={this.handleDelete}>delete</button>;
     }
     return(
-      <li>
+      <li className='comment-items'>
         <img className='comment-image'
-             src={this.props.comment.imageUrl}></img>
-        <p>{this.props.comment.username}</p>
-        <p>{this.props.comment.body}</p>
+             src={this.props.comment.imageUrl}>
+        </img>
+        <div className='comment-info'>
+          <p className='comment-username'>{this.props.comment.username}</p>
+          <p className='comment-body'>{this.props.comment.body}</p>
+        </div>
         {deleteButton}
       </li>
     );
