@@ -37,14 +37,12 @@ class StartPodcastForm extends React.Component {
 
   render() {
     return(
-      <div>
+      <div className='start-form'>
         <form onSubmit={this.handleUpload}>
-          <h1>We're excited that you want to start your Podcast journey with us!</h1>
-          <h2>Step 1:</h2>
-          <h3>What will the title be?</h3>
-          <input type='text' onChange={this.setTitle}/>
-          <h2>Step 2:</h2>
-          <h3>Please Enter a Logo image for your Podcast</h3>
+          <h1>We're Excited That you Want to Start your Podcast Journey With Us!</h1>
+          <h2>What Will the Title Be?</h2>
+          <input className='start-title' type='text' onChange={this.setTitle}/>
+          <h3>Please Enter a Logo Image for your Podcast</h3>
           <label htmlFor='logo-upload'>
             Choose a file to upload
             <input type='file' id='logo-upload' onChange={this.setFile}/>
