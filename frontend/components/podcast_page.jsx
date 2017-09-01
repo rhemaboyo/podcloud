@@ -91,6 +91,7 @@ class PodcastPage extends React.Component {
             <img src="https://s3.amazonaws.com/podcloud-dev/ezgif.com-crop+(1).gif" className='podcast-banner'/>
             <img src={this.props.podcast.logoUrl} className='podcast-logo'/>
           </div>
+          <p className='banner-title'>{this.props.podcast.title}</p>
         </div>
         <Modal
           isOpen={this.state.modalIsOpen}
@@ -109,6 +110,7 @@ class PodcastPage extends React.Component {
         <div className='body'>
           <div className='track-container'>
           {uploadButton}
+          <div className='tabs' id='latest'>Latest Episodes</div>
           <ul>{episodes}</ul>
           </div>
         </div>

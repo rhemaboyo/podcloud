@@ -10,6 +10,7 @@ class EpisodePage extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handlePlay = this.handlePlay.bind(this);
   }
 
   handleChange(e) {
@@ -29,6 +30,10 @@ class EpisodePage extends React.Component {
     this.setState({body: ''});
   }
 
+  handlePlay() {
+    this.props.receiveCurrentEp(this.props.episode);
+  }
+
   componentWillReceiveProps(nextProps) {
     if (this.props.match.params.id !== nextProps.match.params.id){
       this.props.requestSingleEpisode(nextProps.match.params.id);
@@ -46,6 +51,15 @@ class EpisodePage extends React.Component {
                 key={comment.id}
                 comment={comment}/>;
     });
+    let enjoy = null;
+    let playPauseButton = <i onClick={this.handlePlay}
+       className="fa fa-play"
+       id='playPause'
+       aria-hidden="true"></i>;
+    if (this.props.currentEp === this.props.episode.id) {
+       playPauseButton = null;
+       enjoy = <p className='enjoy'>ENJOY...</p>;
+    }
     return(
       <div>
         <NavBarContainer/>
@@ -53,7 +67,10 @@ class EpisodePage extends React.Component {
           <div className='episode-image-container'>
             <img src="https://s3.amazonaws.com/podcloud-dev/ezgif.com-crop.gif" className='episode-banner'/>
             <img src={this.props.episode.imageUrl} className='episode-logo'/>
+            {playPauseButton}
+            {enjoy}
           </div>
+          <p className='banner-title'>{this.props.episode.title}</p>
         </div>
         <div className='user-body'>
           <div className='episode-comment-container'>

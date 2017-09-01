@@ -25,6 +25,7 @@ class EpisodeIndex extends React.Component {
         <NavBarContainer/>
           <div className='body'>
             <div className='track-container'>
+              <div className='tabs' id='latest'>Stream</div>
               <ul className='episode-bucket'>{episodes}</ul>
             </div>
           </div>

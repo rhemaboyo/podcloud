@@ -59,7 +59,7 @@
   #playPause {
     position: absolute;
     font-size: 100px;
-    top: 100px;
+    top: 75px;
     left: 120px;
     z-index: 9002;
     visibility: hidden;
@@ -103,4 +103,11 @@
   visibility: hidden;
   color: white;
   text-shadow: 3px 3px 0px black;
+}
+
+.ep-bold {
+  font-family: 'Zilla Slab Highlight', sans-serif !important;
+  color: black !important;
+  font-weight: bold !important;
+  font-size: 15px !important;
 }

@@ -18,6 +18,11 @@ class EpisodeIndexItem extends React.Component {
 
   render() {
     let [editButton, deleteButton] = [null, null];
+    let [title, epclass] = [this.props.episode.podcastTitle, 'none'];
+    if (this.props.page === 'podcast') {
+      title = null;
+      epclass = 'ep-bold';
+    }
     if (this.props.page === 'podcast' && this.props.userId === this.props.adminId) {
       editButton = <button onClick={e => this.props.openModal(e, 'edit', this.props.episode.id)}
         className='edit-button'>EditEpisode</button>;
@@ -39,8 +44,8 @@ class EpisodeIndexItem extends React.Component {
           {enjoy}
           <img className='episode' src={`${this.props.episode.imageUrl}`}/>
           <div className='ep-title'>
-            <Link to={`/podcasts/${this.props.episode.podcastId}`}>{this.props.episode.podcastTitle}</Link>
-            <Link to={`/episodes/${this.props.episode.id}`}>{this.props.episode.title}</Link>
+            <Link to={`/podcasts/${this.props.episode.podcastId}`}>{title}</Link>
+            <Link to={`/episodes/${this.props.episode.id}`} className={epclass}>{this.props.episode.title}</Link>
           </div>
         </div>
         {editButton}
