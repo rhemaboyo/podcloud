@@ -42,7 +42,13 @@
 
 .episode-button {
   position: absolute;
-  right: 0px;
+  right: 30px;
+  top: 40px;
+  border: none;
+  background-color: #f50;
+  border-radius: 5px;
+  color: white;
+  font-size: 15px;
 }
 
 #latest {

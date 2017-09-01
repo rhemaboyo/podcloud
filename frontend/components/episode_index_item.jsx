@@ -38,8 +38,12 @@ class EpisodeIndexItem extends React.Component {
         enjoy = <p className='enjoy'>ENJOY...</p>;
     }
     return(
-      <li>
+      <li >
         <div className='episode-container'>
+          <div className='epitem'>
+            {editButton}
+            {deleteButton}
+          </div>
           {playPauseButton}
           {enjoy}
           <img className='episode' src={`${this.props.episode.imageUrl}`}/>
@@ -48,8 +52,6 @@ class EpisodeIndexItem extends React.Component {
             <Link to={`/episodes/${this.props.episode.id}`} className={epclass}>{this.props.episode.title}</Link>
           </div>
         </div>
-        {editButton}
-        {deleteButton}
       </li>
     );
   }

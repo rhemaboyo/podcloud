@@ -9,7 +9,11 @@ const SessionReducer = (state = {}, action) => {
     case RECEIVE_SINGLE_USER:
       return merge({}, state, {[action.user.username]: action.user});
     case RECEIVE_CURRENT_USER:
-      return merge({}, state, {[action.user.username]: action.user});
+      if (action.user) {
+        return merge({}, state, {[action.user.username]: action.user});
+      } else {
+        return state;
+      }
     default:
       return state;
   }

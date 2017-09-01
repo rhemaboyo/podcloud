@@ -52,7 +52,7 @@ class UploadEpisodeForm extends React.Component {
       return <li key={i}>{error}</li>;
     });
     return(
-      <div>
+      <div className='start-episode'>
         <form onSubmit={ e => this.handleUpload(e, this.props.form)}>
           <h3>Title of this episode:</h3>
           <input type='text' onChange={(e) => this.setField(e, 'title')}/>

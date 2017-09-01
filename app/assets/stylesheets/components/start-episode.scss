@@ -1,0 +1,97 @@
+.start-episode {
+  width: 650px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  form {
+    align-self: center;
+    display: block;
+    h1 {
+      font-size: 20px;
+      margin-bottom: 30px;
+      font-family: 'overpass', sans-serif;
+    }
+    h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      font-family: 'overpass', sans-serif;
+    }
+
+    h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      font-family: 'overpass', sans-serif;
+    }
+    input[type='text'] {
+      border-radius: 5px;
+      height: 27px;
+      width: 360px;
+      font-size: 20px;
+      margin-bottom: 10px;
+      border-style: groove;
+    }
+    input[type='file'] {
+      visibility: hidden;
+      position: absolute;
+    }
+
+    input[type='submit'] {
+      display: block;
+      margin: 0 auto;
+      padding-top: 10px;
+      display: inline-flex;
+      color: black;
+      border-style: none;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      font-size: 20px;
+      background-color: white;
+      border-bottom: 2px solid black;
+    }
+
+    input[type='submit']:hover {
+      cursor: pointer;
+    }
+
+    label {
+      border-radius: 5px;
+      height: 23px;
+      width: 300px;
+      font-size: 20px;
+      background-color: #d64b43;
+      color: white;
+      display: block;
+      border: 3px solid black;
+      font-family: 'overpass', sans-serif;
+      margin: 0 auto;
+      margin-top: 15px;
+    }
+
+    label:hover {
+      cursor: pointer;
+    }
+    // :nth-child(2) {
+    //   display: table-column;
+    //   margin: 20px;
+    //   border-radius: 5px;
+    //   height: 27px;
+    //   width: 360px;
+    //   font-size: 20px;
+    //   border: none;
+    // }
+    // :nth-child(3) {
+    //   display: table-column;
+    //   border-radius: 5px;
+    //   height: 35px;
+    //   width: 370px;
+    //   font-size: 20px;
+    //   background-color: #f50;
+    //   color: white;
+    //   border: none;
+    //   font-family: 'overpass', sans-serif;
+    // }
+  }
+}

@@ -111,3 +111,17 @@
   font-weight: bold !important;
   font-size: 15px !important;
 }
+
+.epitem {
+  position: absolute;
+  bottom: 0;
+  button {
+    cursor: pointer;
+    background-color: wheat;
+    border: none;
+    border-radius: 5px;
+    color: black;
+    position: relative;
+    margin-left: 10px;
+  }
+}

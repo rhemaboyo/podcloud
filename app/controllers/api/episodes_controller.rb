@@ -7,6 +7,7 @@ class Api::EpisodesController < ApplicationController
   def create
     @episode = Episode.new(episode_params)
     if @episode.save
+      @comments = []
       render :show
     else
       render json: @episode.errors.full_messages, status: 422
