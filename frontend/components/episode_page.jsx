@@ -69,8 +69,8 @@ class EpisodePage extends React.Component {
             <img src={this.props.episode.imageUrl} className='episode-logo'/>
             {playPauseButton}
             {enjoy}
+            <p className='banner-title'>{this.props.episode.title}</p>
           </div>
-          <p className='banner-title'>{this.props.episode.title}</p>
         </div>
         <div className='user-body'>
           <div className='episode-comment-container'>

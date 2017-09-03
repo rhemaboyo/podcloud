@@ -3,6 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
   .episode-image-container {
     width: 1240px;
     height: 300px;
@@ -35,19 +36,30 @@
     }
   }
   .banner-title {
+    // font-family: 'Zilla Slab Highlight', sans-serif;
+    // color: black;
+    // font-weight: bold;
+    // z-index: 9000;
+    // width: 300px;
+    // height: 100px;
+    // padding: 20px;
+    // text-align: center;
+    // position: absolute;
+    // top: 30%;
+    // left: 50%;
+    // margin: -70px 0 0 -170px;
+    font-size: 30px
     font-family: 'Zilla Slab Highlight', sans-serif;
     color: black;
     font-weight: bold;
     z-index: 9000;
-    width: 300px;
-    height: 100px;
-    padding: 20px;
+    width: 600px;
     text-align: center;
-    position: absolute;
-    top: 30%;
+    top: 20%;
     left: 50%;
-    margin: -70px 0 0 -170px;
-    font-size: 30px
+    right: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
   }
 }
 
