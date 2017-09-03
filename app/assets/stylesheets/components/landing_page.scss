@@ -19,7 +19,7 @@ button {
     float: right;
     margin-left: 10px;
     margin-top: 20px;
-    font-size: 14px
+    font-size: 14px;
   }
   :nth-child(1) {
     display: block;
@@ -49,19 +49,19 @@ button {
   }
 
   :nth-child(4) {
-    width: 70px
+    width: 70px;
   }
 
   :nth-child(5) {
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
-    color: white
+    color: white;
   }
 
   p {
     float: left;
     font-size: 25px;
-    margin: 25px
+    margin: 25px;
   }
   img {
     float: left;
@@ -90,7 +90,7 @@ button {
 
   :nth-child(1), :nth-child(2), :nth-child(3) {
     font-family: 'Roboto', sans-serif;
-    color: white
+    color: white;
   }
  }
 
