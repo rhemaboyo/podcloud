@@ -14,12 +14,16 @@ class Api::PodcastsController < ApplicationController
   end
 
   def create_original_podcast
-    @podcast = Podcast.new(podcast_params)
-    if @podcast.save
-      @episodes = @podcast.episodes
-      render :show
+    if podcast_params.include?(:logo_url)
+      @podcast = Podcast.new(podcast_params)
+      if @podcast.save
+        @episodes = []
+        render :show
+      else
+        render json: @podcast.errors.full_messages, status: 422
+      end
     else
-      render json: @podcast.errors.full_messages, status: 422
+      render json: ['Please choose an image as your logo'], status: 422
     end
   end
 

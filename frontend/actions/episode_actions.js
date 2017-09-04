@@ -24,6 +24,7 @@ export const requestSingleEpisode = (id) => dispatch => {
 export const addOriginalEpisode = episode => dispatch => {
   return APIUtil.addOriginalEpisode(episode)
     .then( returnedEpisode => {
+      debugger;
       dispatch(receiveNewEpisode(returnedEpisode));
     });
 };

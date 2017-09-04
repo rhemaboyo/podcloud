@@ -16,6 +16,7 @@ const mapStateToProps = (state) => {
   return {
     user: state.session.currentUser,
     podcastId: selectMostRecentPodcastId(state),
+    errors: state.errors,
   };
 };
 
