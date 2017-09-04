@@ -14,7 +14,7 @@ class Api::PodcastsController < ApplicationController
   end
 
   def create_original_podcast
-    if podcast_params.include?(:logo_url)
+    if podcast_params.include?(:original_logo)
       @podcast = Podcast.new(podcast_params)
       if @podcast.save
         @episodes = []

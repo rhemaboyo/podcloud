@@ -24,9 +24,8 @@ export const requestSingleEpisode = (id) => dispatch => {
 export const addOriginalEpisode = episode => dispatch => {
   return APIUtil.addOriginalEpisode(episode)
     .then( returnedEpisode => {
-      debugger;
       dispatch(receiveNewEpisode(returnedEpisode));
-    });
+    }, errors => dispatch(receiveErrors(errors.responseJSON)));
 };
 export const editEpisode = (id, episode) => dispatch => {
   return APIUtil.editEpisode(id, episode)
@@ -40,23 +39,23 @@ export const deleteEpisode = (episode) => dispatch => {
       errors => dispatch(receiveErrors(errors.responseJSON)));
 };
 
-export const receiveEditedEpisode = (episode) => {
+export const receiveEditedEpisode = (payload) => {
   return {
     type: RECEIVE_NEW_EPISODE,
-    episode,
+    payload,
   };
 };
-export const receiveDeletedEpisode = (episode) => {
+export const receiveDeletedEpisode = (episodeId) => {
   return {
     type: RECEIVE_DELETED_EPISODE,
-    episode,
+    episodeId,
   };
 };
 
-export const receiveNewEpisode = (episode) => {
+export const receiveNewEpisode = (payload) => {
   return {
     type: RECEIVE_NEW_EPISODE,
-    episode,
+    payload,
   };
 };
 

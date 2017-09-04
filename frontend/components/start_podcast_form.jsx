@@ -36,6 +36,9 @@ class StartPodcastForm extends React.Component {
   }
 
   render() {
+    const errors = this.props.errors.map((error, i) => {
+      return <li key={i}>{error}</li>;
+    });
     return(
       <div className='start-form'>
         <form onSubmit={this.handleUpload}>
@@ -48,6 +51,7 @@ class StartPodcastForm extends React.Component {
             <input type='file' id='logo-upload' onChange={this.setFile}/>
           </label>
           <input type='submit'></input>
+          <ul>{errors}</ul>
         </form>
       </div>
     );

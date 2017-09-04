@@ -15,8 +15,9 @@ class Api::EpisodesController < ApplicationController
   end
 
   def update
-    @episode = Episode.find(params[:id])
+    @episode = Episode.includes(comments: :user).find(params[:id])
     if @episode.update(episode_params)
+      @comments = @episode.comments.order(created_at: "DESC")
       render :show
     else
       render json: @episode.errors.full_messages, status: 422
@@ -36,7 +37,7 @@ class Api::EpisodesController < ApplicationController
   def destroy
     @episode = Episode.find(params[:id])
     @episode.destroy
-    render :show
+    render json: params[:id]
   end
 
   private

@@ -1,4 +1,5 @@
 import * as APIUtil from '../util/podcast_api_util';
+import {receiveErrors} from './error_actions.js';
 export const RECEIVE_SINGLE_PODCAST = 'RECEIVE_SINGLE_PODCAST';
 export const RECEIVE_ALL_PODCASTS = 'RECEIVE_ALL_PODCASTS';
 
@@ -19,7 +20,8 @@ export const requestSinglePodcast = itunesId => dispatch => {
 
 export const addOriginalPodcast = podcast => dispatch => {
   return APIUtil.addOriginalPodcast(podcast)
-    .then(returnedPodcast => dispatch(receiveSinglePodcast(returnedPodcast)));
+    .then(returnedPodcast => dispatch(receiveSinglePodcast(returnedPodcast)),
+      errors => dispatch(receiveErrors(errors.responseJSON)));
 };
 
 export const receiveSinglePodcast = (payload) => {
