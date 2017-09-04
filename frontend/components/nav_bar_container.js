@@ -7,7 +7,7 @@ import {addOriginalPodcast} from '../actions/podcast_actions';
 const mapDispatchToProps = (dispatch) => {
   return {
     logout: user => dispatch(logout()),
-    removeErrors: () => dispatch(removeErrors),
+    removeErrors: () => dispatch(removeErrors()),
     addOriginalPodcast: podcast => dispatch(addOriginalPodcast(podcast)),
   };
 };

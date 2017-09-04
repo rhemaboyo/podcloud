@@ -16,7 +16,7 @@ class Podcast < ApplicationRecord
   validates :feed_url, :logo_url, :itunes_id, presence: true, unless: 'admin_id'
   validates :admin_id, presence: true, unless: 'itunes_id'
 
-  has_attached_file :original_logo, default_url: nil, presence: true, unless: 'itunes_id'
+  has_attached_file :original_logo, default_url: "daftpunk.jpg", presence: true, unless: 'itunes_id'
 
   validates_attachment_content_type :original_logo,
                                     content_type: /\Aimage\/.*\z/,

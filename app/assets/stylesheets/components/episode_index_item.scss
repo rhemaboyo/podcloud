@@ -114,13 +114,14 @@
 
 .epitem {
   position: absolute;
-  bottom: 0;
+  bottom: 120px;
+  z-index: 9010;
   button {
     cursor: pointer;
-    background-color: wheat;
+    background-color: #f50;
     border: none;
     border-radius: 5px;
-    color: black;
+    color: white;
     position: relative;
     margin-left: 10px;
   }

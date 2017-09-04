@@ -82,7 +82,7 @@ class AuthForm extends React.Component {
           <a onClick={this.handleLink}
              href=''
           >{linkText}</a>
-        <ul>{errors}</ul>
+        <ul className='error-list'>{errors}</ul>
         </form>
       </div>
     );

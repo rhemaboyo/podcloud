@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   end
 
   def require_logged_in!
-    render 'api/session/new' unless logged_in?
+    render json: {} unless logged_in?
   end
 
   def require_logged_out!

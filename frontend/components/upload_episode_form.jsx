@@ -63,7 +63,7 @@ class UploadEpisodeForm extends React.Component {
             <input type='file' id='episode-upload' onChange={this.setFile}/>
           </label>
           <input type='submit'></input>
-          <ul>{errors}</ul>
+          <ul className='error-list'>{errors}</ul>
         </form>
       </div>
     );
