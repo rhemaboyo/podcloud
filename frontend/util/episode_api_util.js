@@ -5,6 +5,13 @@ export const requestAllEpisodes = () => {
   });
 };
 
+export const getSampleEpisodes = () => {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/episodes/sample/',
+  });
+};
+
 export const requestSingleEpisode = (id) => {
   return $.ajax({
     method: 'GET',

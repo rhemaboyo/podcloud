@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :api, defaults: { format: :json } do
+    get 'episodes/sample/', to: 'episodes#get_sample_episodes'
     resources :users, only: %i(create show update)
     resource :session, only: %i(create destroy)
     resources :podcasts, only: %i(create index show)

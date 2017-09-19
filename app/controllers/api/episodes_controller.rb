@@ -40,6 +40,12 @@ class Api::EpisodesController < ApplicationController
     render json: params[:id]
   end
 
+  def get_sample_episodes
+    @episodes = Podcast.includes(:episodes).limit(8)
+      .map { |podcast| podcast.episodes.first }
+    render :index
+  end
+
   private
 
   def episode_params

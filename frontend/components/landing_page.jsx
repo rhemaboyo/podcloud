@@ -1,15 +1,19 @@
 import React from 'react';
 import Modal from 'react-modal';
 import AuthForm from './auth_form';
+import EpisodeIndexItemContainer from './episode_index_item_container';
 
 const customStyles = {
+  overlay : {
+    zIndex            : '9999'
+  },
   content : {
     top                   : '50%',
     left                  : '50%',
     right                 : 'auto',
     bottom                : 'auto',
     marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
+    transform             : 'translate(-50%, -50%)',
   }
 };
 
@@ -25,6 +29,10 @@ class LandingPage extends React.Component {
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.handleGuest = this.handleGuest.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.getSampleEpisodes();
   }
 
   openModal(e) {
@@ -55,6 +63,15 @@ class LandingPage extends React.Component {
   }
 
   render() {
+    console.log(this.props.episodes);
+    if (this.props.episodes.length === 0) return null;
+    const episodes = this.props.episodes.map( episode => {
+      return <EpisodeIndexItemContainer
+        episode={episode}
+        key={episode.id}
+        currentEp={this.props.currentEp}
+        receiveCurrentEp={this.props.receiveCurrentEp}/>;
+    });
     return (
       <div className="landing-page">
         <div className="banner">
@@ -69,8 +86,11 @@ class LandingPage extends React.Component {
           <p>Discover, stream, and share a constantly expanding mix of podcasts</p>
           <p>from emerging and major content creators around the world.</p>
         </div>
-        <div className='trending'>
-          <p>Tracks Coming Soon... Keep Your Head In the Clouds.</p> { /*with these tracks */}
+        <div className='body'>
+          <div className='track-container'>
+            <div className='tabs' id='latest'>Latest Episodes</div>
+            <ul className='episode-bucket'>{episodes}</ul>
+          </div>
         </div>
         <div className='banner-2'>
         </div>

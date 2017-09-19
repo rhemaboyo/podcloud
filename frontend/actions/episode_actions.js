@@ -14,6 +14,13 @@ export const requestAllEpisodes = () => dispatch => {
     });
 };
 
+export const getSampleEpisodes = () => dispatch => {
+  return APIUtil.getSampleEpisodes()
+    .then(episodes => {
+      dispatch(receiveAllEpisodes(episodes));
+    });
+};
+
 export const requestSingleEpisode = (id) => dispatch => {
   return APIUtil.requestSingleEpisode(id)
     .then(episode => {

@@ -143,17 +143,15 @@ button {
 }
 
 .trending {
-  width: 1240px;
-  height: 200px;
-  margin: 0 auto;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 600;
   display: flex;
   justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  background-color: #ffffff;
-  font-size: 35px;
+  background-color: #f2f2f2;
+  height: 100%;
+  position: relative;
+  margin-left: 0 auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
   p {
     border: 1px solid black;
     width: 900px;
@@ -162,6 +160,26 @@ button {
     text-align: center;
   }
 }
+// .trending {
+//   width: 1240px;
+//   height: 200px;
+//   margin: 0 auto;
+//   font-family: 'Roboto', sans-serif;
+//   font-weight: 600;
+//   display: flex;
+//   justify-content: center;
+//   flex-direction: column;
+//   align-items: center;
+//   background-color: #ffffff;
+//   font-size: 35px;
+//   p {
+//     border: 1px solid black;
+//     width: 900px;
+//     height: 50px;
+//     line-height: 50px;
+//     text-align: center;
+//   }
+// }
 
 .banner-2 {
   height: 567px;
