@@ -63,7 +63,6 @@ class LandingPage extends React.Component {
   }
 
   render() {
-    console.log(this.props.episodes);
     if (this.props.episodes.length === 0) return null;
     const episodes = this.props.episodes.map( episode => {
       return <EpisodeIndexItemContainer
