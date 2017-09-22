@@ -1,11 +1,7 @@
 # PodCloud
 
 [Heroku link][heroku]
-
-[Trello link][trello]
-
-[heroku]: https://podcloudapp.herokuapp.com/#/
-[trello]: https://trello.com/b/WqkLPfUL/podcloud
+[heroku]: http://podcloudapp.herokuapp.com/#/
 
 PodCloud is a podcast streaming app inspired by SoundCloud, built using Ruby on Rails, React, Redux, and PostgreSQL.    
 
