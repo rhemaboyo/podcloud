@@ -17,7 +17,7 @@ class UploadPage extends React.Component {
   }
 
   handleSubmit(e) {
-    self = this;
+    let self = this;
     e.preventDefault();
     let podcast;
     $.ajax({
@@ -45,7 +45,9 @@ class UploadPage extends React.Component {
           <p>
             Please enter the exact title of the podcast
           </p>
-          <input onChange={this.handleChange} placeholder='Type here...' type='text'/>
+          <input onChange={this.handleChange}
+                 placeholder='Type here...'
+                 type='text'/>
           <input type='submit'></input>
         </form>
       </div>

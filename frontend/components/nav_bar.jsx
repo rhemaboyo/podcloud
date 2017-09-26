@@ -31,12 +31,14 @@ class NavBar extends React.Component {
     super(props);
     this.state = {
       modalIsOpen: false,
-      form: null
+      form: null,
+      searchTerm: '',
     };
     this.logout = this.logout.bind(this);
     this.preventDefault = this.preventDefault.bind(this);
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.search = this.search.bind(this);
   }
 
   openModal(e, form) {
@@ -64,8 +66,11 @@ class NavBar extends React.Component {
     e.preventDefault();
   }
 
+  search() {
+    console.log('hello');
+  }
+
   render() {
-    {/*may want to refactor all clicks into one function later*/}
     const form1 = <StartPodcastFormContainer closeModal={this.closeModal}/>;
     const form2 = <UploadPageContainer closeModal={this.closeModal}/>;
     return(
@@ -84,9 +89,9 @@ class NavBar extends React.Component {
               'https://a-v2.sndcdn.com/assets/images/sc-icons/win8-2dc974a1.png'
             ></img>
             <Link to={`/stream`}>Home</Link>
-            <input onSubmit={this.preventDefault}
-              placeholder='Search...'
-              value=''/>
+            <input onSubmit={this.search}
+                   placeholder='Search...'
+                   value=''/>
           </nav>
         </div>
         <Modal
