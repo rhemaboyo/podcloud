@@ -35,7 +35,7 @@
     text-decoration: none;
     padding-top: 15px;
   }
-  :first-child, :nth-child(2), :nth-child(3) {
+  .nav-right {
     float: right;
   }
   input {
@@ -46,10 +46,10 @@
     margin-top: 8px;
   }
 
-  :nth-child(5), :nth-child(6) {
+  .nav-left {
     float: left;
   }
-  :nth-child(7) {
+  .searchbar {
     height: 50%;
     border-style: outset;
     font-size: 15px;

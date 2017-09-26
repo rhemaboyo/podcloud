@@ -91,8 +91,6 @@ class LandingPage extends React.Component {
             <ul className='episode-bucket'>{episodes}</ul>
           </div>
         </div>
-        <div className='banner-2'>
-        </div>
         <Modal
           isOpen={this.state.modalIsOpen}
           onRequestClose={this.closeModal}

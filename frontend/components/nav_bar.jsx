@@ -38,6 +38,7 @@ class NavBar extends React.Component {
     this.preventDefault = this.preventDefault.bind(this);
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.search = this.search.bind(this);
   }
 
@@ -66,8 +67,12 @@ class NavBar extends React.Component {
     e.preventDefault();
   }
 
-  search() {
-    console.log('hello');
+  handleChange(e) {
+    console.log(e);
+  }
+
+  search(e) {
+    console.log(e);
   }
 
   render() {
@@ -77,21 +82,24 @@ class NavBar extends React.Component {
       <div>
         <div className='nav-container'>
           <nav className='nav'>
-            <button onClick={this.logout}>Sign Out</button>
-            <Link to={`/${this.props.user.username}`}>
+            <button onClick={this.logout} className='nav-right'>Sign Out</button>
+            <Link to={`/${this.props.user.username}`} className='nav-right'>
               {this.props.user.username}
             </Link>
-            <button onClick={e => this.openModal(e, form1)}>
+            <button onClick={e => this.openModal(e, form1)} className='nav-right'>
               Start Your own Podcast!</button>
-            <button onClick={e => this.openModal(e, form2)}>
-              Add your favorite Podcast!</button>
             <img src=
               'https://a-v2.sndcdn.com/assets/images/sc-icons/win8-2dc974a1.png'
-            ></img>
-            <Link to={`/stream`}>Home</Link>
-            <input onSubmit={this.search}
+            className='nav-left'></img>
+          <Link to={`/stream`} className='nav-left'>Home</Link>
+          <button onClick={e => this.openModal(e, form2)} className='nav-left'>
+            Add your favorite Podcast!</button>
+          <form onSubmit={this.search}>
+            <input onChange={this.handleChange}
+                   className='searchbar'
                    placeholder='Search...'
-                   value=''/>
+                   type='text'/>
+          </form>
           </nav>
         </div>
         <Modal
