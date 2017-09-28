@@ -35,7 +35,6 @@ class NavBar extends React.Component {
       searchTerm: '',
     };
     this.logout = this.logout.bind(this);
-    this.preventDefault = this.preventDefault.bind(this);
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -59,20 +58,15 @@ class NavBar extends React.Component {
     this.props.logout();
   }
 
-  showUser() {
-
-  }
-
-  preventDefault(e) {
-    e.preventDefault();
-  }
-
   handleChange(e) {
-    console.log(e);
+    this.setState({searchTerm: e.currentTarget.value});
   }
 
   search(e) {
-    console.log(e);
+    e.preventDefault();
+    this.props.getSearchResults(this.state.searchTerm).then( res => {
+      console.log(res);
+    });
   }
 
   render() {
@@ -82,11 +76,13 @@ class NavBar extends React.Component {
       <div>
         <div className='nav-container'>
           <nav className='nav'>
-            <button onClick={this.logout} className='nav-right'>Sign Out</button>
+            <button onClick={this.logout}
+                    className='nav-right'>Sign Out</button>
             <Link to={`/${this.props.user.username}`} className='nav-right'>
               {this.props.user.username}
             </Link>
-            <button onClick={e => this.openModal(e, form1)} className='nav-right'>
+            <button onClick={e => this.openModal(e, form1)}
+                    className='nav-right'>
               Start Your own Podcast!</button>
             <img src=
               'https://a-v2.sndcdn.com/assets/images/sc-icons/win8-2dc974a1.png'

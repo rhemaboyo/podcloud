@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :podcasts, only: %i(create index show)
     resources :episodes, only: %i(index create show update destroy)
     resources :comments, only: %i(create update destroy)
+    resources :search, param: :term, only: %i(show)
     post 'podcasts/original', to: 'podcasts#create_original_podcast'
   end
 
