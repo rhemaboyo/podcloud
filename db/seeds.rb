@@ -59,7 +59,7 @@ def get_five_episodes(podcast)
       errors = ep.errors.full_messages
       errors
     end
-    break if i == 5
+    break if i == 7
   end
   five_most_recent_episodes
 end
