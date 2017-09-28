@@ -22,6 +22,7 @@ class UserPage extends React.Component {
   }
 
   componentDidMount() {
+    console.log('boo!');
     this.props.getUser(this.props.match.params.username);
     this.props.getAllPodcasts();
   }

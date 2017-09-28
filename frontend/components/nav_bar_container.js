@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import NavBar from './nav_bar';
+import { withRouter } from 'react-router-dom';
 import {logout} from '../actions/session_actions';
 import {removeErrors} from '../actions/error_actions';
 import {addOriginalPodcast} from '../actions/podcast_actions';
@@ -20,4 +21,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NavBar));

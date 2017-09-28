@@ -9,12 +9,14 @@ import EpisodePageContainer from './episode_page_container';
 import PodcastPageContainer from './podcast_page_container';
 import ProgressBarContainer from './progress_bar_container';
 import NavBarContainer from './nav_bar_container';
+import SearchPageContainer from './search_page_container';
 
 const App = () => (
   <div>
     <Switch>
       <AuthRoute exact path="/" component={ LandingPageContainer } />
       <ProtectedRoute exact path="/stream" component={ EpisodeIndexContainer } />
+      <ProtectedRoute path="/search/:term" component={ SearchPageContainer } />
       {/*Protect user route for now...should be made public later*/}
       <ProtectedRoute path="/upload" component={UploadPageContainer}/>
       <ProtectedRoute path="/podcasts/:id" component={PodcastPageContainer}/>

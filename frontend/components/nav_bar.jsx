@@ -64,8 +64,9 @@ class NavBar extends React.Component {
 
   search(e) {
     e.preventDefault();
+    const self = this;
     this.props.getSearchResults(this.state.searchTerm).then( res => {
-      console.log(res);
+      self.props.history.push(`/search/${self.state.searchTerm}`);
     });
   }
 
