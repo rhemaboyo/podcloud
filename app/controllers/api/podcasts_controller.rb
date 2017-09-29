@@ -40,7 +40,7 @@ class Api::PodcastsController < ApplicationController
   private
 
   def podcast_params
-    params.require(:podcast).permit(:title, :logo_url, :feed_url, :admin_id, :itunes_id,
-                                    :original_logo)
+    params.require(:podcast).permit(:title, :logo_url, :feed_url, :admin_id,
+                                    :itunes_id, :original_logo)
   end
 end
