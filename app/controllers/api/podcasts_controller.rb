@@ -28,11 +28,6 @@ class Api::PodcastsController < ApplicationController
   end
 
   def show
-    # if params[:id][0] == 'o'
-    #   @podcast = Podcast.find(params[:id][9..-1])
-    # else
-    #   @podcast = Podcast.find_by(itunes_id: params[:id])
-    # end
     @podcast = Podcast.find(params[:id])
     if @podcast
       @episodes = @podcast.episodes

@@ -41,7 +41,7 @@ class Api::EpisodesController < ApplicationController
   end
 
   def get_sample_episodes
-    @episodes = Podcast.includes(:episodes).limit(8)
+    @episodes = Podcast.where.not(itunes_id: nil).includes(:episodes).limit(8)
       .map { |podcast| podcast.episodes.first }
     render :index
   end
