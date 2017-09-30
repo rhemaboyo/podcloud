@@ -107,8 +107,8 @@ class PodcastPage extends React.Component {
             removeErrors={this.props.removeErrors}
             closeModal={this.closeModal}/>
         </Modal>
-        <div className='body'>
-          <div className='track-container'>
+        <div className='user-body'>
+          <div className='user-track-container'>
           {uploadButton}
           <div className='tabs' id='latest'>Latest Episodes</div>
           <ul>{episodes}</ul>
