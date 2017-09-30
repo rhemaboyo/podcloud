@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
     render `api/users/show` if logged_in?
   end
 
-  def get_five_episodes(url)
+  def get_episodes(url)
     response = RestClient.get(url)
     feed = Feedjira::Feed.parse_with(Feedjira::Parser::ITunesRSS, response)
     episodes = feed.entries

@@ -51,14 +51,33 @@ def get_episodes(podcast)
 end
 ```
 
-### Progress Bar
+### Search Bar
 
-Once a user hits play on a podcast they are able to visit any page on the website without being interrupted.
+Before adding a podcast to the site most users will usually search for the podcast they are looking for. When a user inputs a term into the search bar, we scan our database for all podcasts that have that phrase in the title, and display them.
+
+```ruby
+class Api::SearchController < ApplicationController
+  def show
+    @podcasts = Podcast.where(
+    'title ILIKE ANY ( array[?] )', ["#{params[:term]}%", "% #{params[:term]}%"]
+    )
+    if @podcasts
+      render :show
+    else
+      render json: ['No Results Found'], status: 404
+    end
+  end
+end
+```
+In the search controller, we do a case insensitive query for podcasts with titles that start with, or have a word that starts with the users search term. If none are found the user can then add the podcast they are looking for to our site.
 
 ### Other Features
 
-Once podcasts are uploaded, users can make comments and discover other podcasts they may be interested in.
+When a user plays a track, they can pause, rewind, and fast forward with a progress bar that will always be displayed and keep the track playing, no matter where they go on the site.
+
 Users also have the ability to personalize their avatars and banner images and manage their own podcasts by clicking on the `Created Podcasts` tab and visiting their podcast pages. Once there, they have the ability to upload, edit, and delete episodes at the click of a button, while other users cannot.
+
+Once podcasts are uploaded, users can make comments and discover other podcasts they may be interested in. 
 
 ## Future Directions for the Project
 

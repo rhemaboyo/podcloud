@@ -6,7 +6,7 @@ class Api::SearchController < ApplicationController
     if @podcasts
       render :show
     else
-      render json: ['No such podcast available'], status: 404
+      render json: ['No Results Found'], status: 404
     end
   end
 end

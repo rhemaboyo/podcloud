@@ -37,7 +37,7 @@ Podcast.create!(title:"Here's The Thing with Alec Baldwin",logo_url:"http://is4.
 
 Episode.delete_all
 
-def get_five_episodes(podcast)
+def get_episodes(podcast)
   response = RestClient.get(podcast.feed_url)
   feed = Feedjira::Feed.parse_with(Feedjira::Parser::ITunesRSS, response)
   episodes = feed.entries
@@ -64,5 +64,5 @@ def get_five_episodes(podcast)
   five_most_recent_episodes
 end
 Podcast.all.each do |podcast|
-  get_five_episodes(podcast)
+  get_episodes(podcast)
 end
