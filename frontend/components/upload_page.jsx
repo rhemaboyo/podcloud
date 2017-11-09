@@ -31,10 +31,14 @@ class UploadPage extends React.Component {
       }),
     }).then(null, (response) => {
       podcast = JSON.parse(response.responseText).results[0];
-      this.props.addPodcast(podcast).then( res => {
-        self.props.history.push(`/podcasts/${res.payload.podcast.id}`);
-        self.props.closeModal();
-      });
+      if (podcast) {
+        this.props.addPodcast(podcast).then( res => {
+          self.props.history.push(`/podcasts/${res.payload.podcast.id}`);
+          self.props.closeModal();
+        });
+      } else {
+        console.log('nothing found');
+      }
     });
   }
 
