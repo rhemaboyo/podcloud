@@ -1,11 +1,16 @@
 class Api::PodcastsController < ApplicationController
   def create
-    @podcast = Podcast.new(podcast_params)
-    if @podcast.save
-      @episodes = get_episodes(@podcast.feed_url)
+    @podcast = Podcast.find_by(podcast_params)
+    if @podcast
       render :show
     else
-      render json: @podcast.errors.full_messages, status: 422
+      @podcast = Podcast.new(podcast_params)
+      if @podcast.save
+        @episodes = get_episodes(@podcast.feed_url)
+        render :show
+      else
+        render json: @podcast.errors.full_messages, status: 422
+      end
     end
   end
 

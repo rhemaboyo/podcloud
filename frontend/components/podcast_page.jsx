@@ -52,16 +52,7 @@ class PodcastPage extends React.Component {
 
   componentDidMount() {
     const {id} = this.props.match.params;
-    // if (!this.props.podcast) {
-    //   if (id[0] === 'o') {
-    //     this.props.requestSinglePodcast(id.slice(9));
-    //   } else {
-    //     this.props.requestSinglePodcast(id);
-    //   }
-    // }
-    // if (!this.props.podcast) {
       this.props.requestSinglePodcast(id);
-    // }
   }
 
   render() {
