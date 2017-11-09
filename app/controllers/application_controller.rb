@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
     response = RestClient.get(url)
     feed = Feedjira::Feed.parse_with(Feedjira::Parser::ITunesRSS, response)
     episodes = feed.entries
-    five_most_recent_episodes = []
+    most_recent_episodes = []
     episodes.each_with_index do |episode, i|
       ep = Episode.new(
         podcast_id: @podcast.id,
@@ -46,13 +46,13 @@ class ApplicationController < ActionController::Base
         image_url: @podcast.logo_url
       )
       if ep.save
-        five_most_recent_episodes << ep
+        most_recent_episodes << ep
       else
         errors = ep.errors.full_messages
         errors
       end
       break if i == 7
     end
-    five_most_recent_episodes
+    most_recent_episodes
   end
 end

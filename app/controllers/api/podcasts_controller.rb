@@ -2,7 +2,7 @@ class Api::PodcastsController < ApplicationController
   def create
     @podcast = Podcast.find_by('itunes_id' => podcast_params['itunes_id'])
     if @podcast
-      @episodes = get_episodes(@podcast.feed_url)
+      @episodes = @podcast.episodes
       render :show
     else
       @podcast = Podcast.new(podcast_params)
