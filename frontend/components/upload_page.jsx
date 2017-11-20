@@ -7,6 +7,7 @@ class UploadPage extends React.Component {
     super(props);
     this.state = {
       searchTerm: '',
+      erros: null,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -37,7 +38,7 @@ class UploadPage extends React.Component {
           self.props.closeModal();
         });
       } else {
-        console.log('nothing found');
+        this.setState({errors: 'Podcast not found. Please try again.'});
       }
     });
   }
@@ -53,6 +54,7 @@ class UploadPage extends React.Component {
                  placeholder='Type here...'
                  type='text'/>
           <input type='submit'></input>
+          <ul className='error-list'>{this.state.errors}</ul>
         </form>
       </div>
     );
